@@ -177,3 +177,6 @@ task.spawn(function()
 	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
 end)
 
+Button("CombatTab", "Test", function()
+	print("TEST")	
+end)
