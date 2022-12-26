@@ -74,12 +74,6 @@ end
 
 local redownload = false
 
-if shared.CuriousliExecuted then
-	error("Curiousli Already Injected")
-	return
-else
-	shared.CuriousliExecuted = true
-end
 
 
 if not isfolder("curiousli") then
