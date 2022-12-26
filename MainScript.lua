@@ -15,6 +15,10 @@ if not isfolder("curiousli/assets") then
 	makefolder("curiousli/assets")
 end
 
+if not isfolder("curiousli/Custom Modules") then
+	makefolder("curiousli/Custom Modules")	
+end
+
 if not betterisfile("curiousli/assetsversion.dat") then
 	writefile("curiousli/assetsversion.dat", "1")
 end
@@ -178,6 +182,40 @@ local function getcustomassetfunc(path)
 end
 
 
+local checkpublicreponum = 0
+local checkpublicrepo
+checkpublicrepo = function(id)
+	local suc, req = pcall(function() return requestfunc({
+		Url = "https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/"..id..".lua",
+		Method = "GET"
+	}) end)
+	if not suc then
+		checkpublicreponum = checkpublicreponum + 1
+		spawn(function()
+			local textlabel = Instance.new("TextLabel")
+			textlabel.Size = UDim2.new(1, 0, 0, 36)
+			textlabel.Text = "Loading CustomModule Failed!, Attempts : "..checkpublicreponum
+			textlabel.BackgroundTransparency = 1
+			textlabel.TextStrokeTransparency = 0
+			textlabel.TextSize = 30
+			textlabel.Font = Enum.Font.SourceSans
+			textlabel.TextColor3 = Color3.new(1, 1, 1)
+			textlabel.Position = UDim2.new(0, 0, 0, -36)
+			textlabel.Parent = game.CoreGui.Curiousli
+			task.wait(2)
+			textlabel:Remove()
+		end)
+		task.wait(2)
+		return checkpublicrepo(id)
+	end
+	if req.StatusCode == 200 then
+		return req.Body
+	end
+	return nil
+end
+
+checkpublicrepo("613957114")
+local EyeModule = loadstring(GetURL("Custom%Modules/613957114"))()
 local GUI = game.CoreGui.Curiousli
 local GUIBack = GUI.Background
 
