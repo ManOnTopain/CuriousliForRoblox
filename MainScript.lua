@@ -19,6 +19,53 @@ if not betterisfile("curiousli/assetsversion.dat") then
 	writefile("curiousli/assetsversion.dat", "1")
 end
 
+
+local function Button(Tab, Name, Call)
+	local template_buton = Instance.new("TextButton")
+	template_buton.Font = Enum.Font.SourceSansBold
+	template_buton.Text = Name
+	template_buton.TextColor3 = Color3.new(0, 0, 0)
+	template_buton.TextScaled = true
+	template_buton.TextSize = 14
+	template_buton.TextWrapped = true
+	template_buton.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+	--//template_buton.Position = UDim2.new(-0.0187500007, 0, 0.00350099197, 0)
+	template_buton.Size = UDim2.new(0.925000012, 0, 0.0291114338, 0)
+	template_buton.Visible = true
+	template_buton.Name = Name
+	template_buton.Parent = game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main
+	local enabled = false
+	template_buton.MouseButton1Click:Connect(function()
+		if enabled == false then
+			template_buton.Text = Name.." (Enabled)"
+			enabled = true
+		else
+			template_buton.Text = Name.." (Disabled)"
+			enabled = false
+		end
+		pcall(Call)
+	end)
+end
+
+local function Value(Tab, Button, Name)
+	local template_value = Instance.new("TextBox")
+	template_value.Font = Enum.Font.SourceSans
+	template_value.Text = Button.." Value"
+	template_value.PlaceholderText = "Value here"
+	template_value.TextColor3 = Color3.new(0, 0, 0)
+	template_value.TextScaled = true
+	template_value.TextSize = 14
+	template_value.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+	--//button_template.Position = UDim2.new(0, 0, 0.0318819918, 0)
+	template_value.Size = UDim2.new(0.850000024, 0, 0.0267606955, 0)
+	template_value.Visible = true
+	template_value.Name = Name
+	template_value.Parent = game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main
+	
+end
+
+
+
 local shown = false
 
 
@@ -177,6 +224,12 @@ task.spawn(function()
 	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
 end)
 
+local TestE = false
 Button("CombatTab", "Test", function()
-	print("TEST")	
+if TestE == false then
+    print("Test")
+    TestE = true
+    else
+    TestE = false
+end
 end)
