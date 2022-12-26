@@ -1,5 +1,9 @@
-
-
+if shared.CuriousliExecuted then
+	error("Curiousli Already Injected")
+	return
+else
+	shared.CuriousliExecuted = true
+	
 local curiousli = Instance.new("ScreenGui")
 curiousli.IgnoreGuiInset = false
 curiousli.ResetOnSpawn = false
@@ -95,3 +99,5 @@ task.spawn(function()
 		end
 	end)
 end)
+end
+
