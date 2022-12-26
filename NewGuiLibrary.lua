@@ -60,9 +60,4 @@ local function getcustomassetfunc(path)
 	end
 end
 
-
-if shared.CuriousliExecuted then
-	
-else
-	loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/GUI.lua"))
-end
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/GUI.lua"))
