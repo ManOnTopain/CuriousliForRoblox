@@ -40,6 +40,7 @@ local function GetURL(scripturl, a)
 	end
 end
 
+local GUILibrary = loadstring(GetURL("NewGuiLibrary.lua"))
 
 local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
 
@@ -133,7 +134,7 @@ local function getcustomassetfunc(path)
 	return getasset(path) 
 end
 
-local GUILibrary = loadstring(GetURL("NewGuiLibrary.lua"))
+
 
 local GUIBack = GUI.Background
 
