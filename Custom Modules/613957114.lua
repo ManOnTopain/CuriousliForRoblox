@@ -48,7 +48,7 @@ local textservice = game:GetService("TextService")
 local repstorage = game:GetService("ReplicatedStorage")
 local lplr = players.LocalPlayer
 local lighting = game:GetService("Lighting")
-local cam = workspace.CurrentCameralocal bettergetfocus = function()
+local cam = workspace.CurrentCamera
 local targetinfo = shared.VapeTargetInfo
 local collectionservice = game:GetService("CollectionService")
 local uis = game:GetService("UserInputService")
@@ -134,7 +134,7 @@ end)
 
 local userType =
 
-local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua", true))()
 
 if lplr.Name == whitelist then
 	print(lplr.Name.." Is whitelisted")		
