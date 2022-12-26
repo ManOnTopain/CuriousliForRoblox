@@ -40,7 +40,7 @@ local function GetURL(scripturl, a)
 end
 
 local GUILibrary = loadstring("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/NewGuiLibrary.lua"))()
-local GUI = game.CoreGui.Curiousli
+
 
 local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
 
@@ -72,7 +72,6 @@ if not (getasset and requestfunc and queueteleport) then
 	return
 end
 
-local executed = false
 local redownload = false
 
 if shared.CuriousliExecuted then
@@ -109,6 +108,7 @@ task.spawn(function()
 	end
 end)
 
+
 local function getcustomassetfunc(path)
 	if not betterisfile(path) then
 		task.spawn(function()
@@ -135,7 +135,7 @@ local function getcustomassetfunc(path)
 end
 
 
-
+local GUI = game.CoreGui:WaitForChild("Curiousli")
 local GUIBack = GUI.Background
 
 
