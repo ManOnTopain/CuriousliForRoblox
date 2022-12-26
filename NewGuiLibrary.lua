@@ -60,4 +60,4 @@ local function getcustomassetfunc(path)
 	end
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/GUI.lua"))
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/GUI.lua"))()
