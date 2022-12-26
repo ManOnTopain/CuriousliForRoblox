@@ -1,4 +1,4 @@
-
+print("loading 613957114.lua")
 local function Button(Tab, Name, Call)
 	local template_buton = Instance.new("TextButton")
 	template_buton.Font = Enum.Font.SourceSansBold
@@ -136,7 +136,9 @@ local userType =
 
 local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua"))()
 
-
+if lplr.Name == whitelist then
+	print(lplr.Name.." Is whitelisted")		
+end
 
 while wait(0.1) do
   if KillauraEnabled == true then
