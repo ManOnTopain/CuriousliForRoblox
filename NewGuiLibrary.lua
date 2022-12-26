@@ -3,6 +3,8 @@ local betterisfile = function(file)
 	return suc and res ~= nil
 end
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/GUI.lua", true))()
+
 local shown = false
 
 local function GetURL(scripturl, a)
@@ -60,4 +62,3 @@ local function getcustomassetfunc(path)
 	end
 end
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/GUI.lua"))()
