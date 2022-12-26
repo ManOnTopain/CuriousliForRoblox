@@ -214,8 +214,8 @@ checkpublicrepo = function(id)
 	return nil
 end
 
-checkpublicrepo("613957114")
-local EyeModule = loadstring(GetURL("Custom%Modules/613957114"))()
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
 local GUI = game.CoreGui.Curiousli
 local GUIBack = GUI.Background
 
