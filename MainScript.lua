@@ -161,3 +161,19 @@ task.spawn(function()
 		end
 	end)
 end)
+
+task.spawn(function()
+	local Logo = GUIBack.Main.Combat.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
+end)
+
+task.spawn(function()
+	local Logo = GUIBack.Main.SettingButton
+	Logo.Image = getcustomassetfunc("curiousli/assets/settings.png")
+end)
+
+task.spawn(function()
+	local Logo = GUIBack.CombatTab.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
+end)
+
