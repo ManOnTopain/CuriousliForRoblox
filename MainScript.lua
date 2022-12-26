@@ -5,6 +5,20 @@ local betterisfile = function(file)
 	return suc and res ~= nil
 end
 
+local GUILibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/NewGuiLibrary.lua"))()
+
+if not isfolder("curiousli") then
+	makefolder("curiousli")
+end
+
+if not isfolder("curiousli/assets") then
+	makefolder("curiousli/assets")
+end
+
+if not betterisfile("curiousli/assetsversion.dat") then
+	writefile("curiousli/assetsversion.dat", "1")
+end
+
 local shown = false
 
 
@@ -39,7 +53,6 @@ local function GetURL(scripturl, a)
 	end
 end
 
-local GUILibrary = loadstring("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/NewGuiLibrary.lua"))()
 
 
 local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
@@ -76,17 +89,6 @@ local redownload = false
 
 
 
-if not isfolder("curiousli") then
-	makefolder("curiousli")
-end
-
-if not isfolder("curiousli/assets") then
-	makefolder("curiousli/assets")
-end
-
-if not betterisfile("curiousli/assetsversion.dat") then
-	writefile("curiousli/assetsversion.dat", "1")
-end
 
 task.spawn(function()
 	local assetver = checkassetversion()
@@ -129,7 +131,7 @@ local function getcustomassetfunc(path)
 end
 
 
-local GUI = game.CoreGui:WaitForChild("Curiousli")
+local GUI = game.CoreGui.Curiousli
 local GUIBack = GUI.Background
 
 
@@ -159,4 +161,3 @@ task.spawn(function()
 		end
 	end)
 end)
-
