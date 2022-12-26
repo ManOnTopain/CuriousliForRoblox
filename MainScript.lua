@@ -39,8 +39,8 @@ local function GetURL(scripturl, a)
 	end
 end
 
-local GUI = game.CoreGui.Curiousli
 local GUILibrary = loadstring(GetURL("NewGuiLibrary.lua"))
+local GUI = game.CoreGui.Curiousli
 
 local queueteleport = syn and syn.queue_on_teleport or queue_on_teleport or function() end
 
