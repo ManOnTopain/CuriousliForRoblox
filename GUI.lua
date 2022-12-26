@@ -2,7 +2,7 @@
 
 local curiousli = Instance.new("ScreenGui")
 curiousli.IgnoreGuiInset = false
-curiousli.ResetOnSpawn = true
+curiousli.ResetOnSpawn = false
 curiousli.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 curiousli.Name = "Curiousli"
 curiousli.Parent = game.CoreGui
