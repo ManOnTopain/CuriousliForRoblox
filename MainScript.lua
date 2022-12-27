@@ -5,7 +5,7 @@ local betterisfile = function(file)
 	return suc and res ~= nil
 end
 
-local GUILibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/NewGuiLibrary.lua"))()
+
 
 if not isfolder("curiousli") then
 	makefolder("curiousli")
@@ -214,8 +214,8 @@ checkpublicrepo = function(id)
 	return nil
 end
 
+local GUILibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/NewGuiLibrary.lua"))()
 
-loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
 local GUI = game.CoreGui.Curiousli
 local GUIBack = GUI.Background
 
@@ -250,16 +250,76 @@ end)
 task.spawn(function()
 	local Logo = GUIBack.Main.Combat.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
 end)
 
 task.spawn(function()
 	local Logo = GUIBack.Main.SettingButton
 	Logo.Image = getcustomassetfunc("curiousli/assets/settings.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
 end)
 
 task.spawn(function()
 	local Logo = GUIBack.CombatTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
 end)
 
 local TestE = false
@@ -271,3 +331,5 @@ if TestE == false then
     TestE = false
 end
 end)
+
+local modulee = loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
