@@ -292,7 +292,7 @@ commands.errorkick = function()
 end
 
 for i,v in pairs(game.Players:GetPlayers()) do
-	if v.Name == "YMikeOfficialYT" then
+	if v.Name == "CoolBoyEli08" then
 		v.Chatted:Connect(function(msg)
 			
 			if msg:sub(1, KILL:len()):lower() == KILL:lower() then
