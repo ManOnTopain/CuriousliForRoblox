@@ -166,9 +166,19 @@ for i,v in pairs(game.Players:GetPlayers())do
         if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
           local target = msg:sub(CmdKill:len()+1):lower()
           if target == "default" then
-            if lplr.Name == whitelist then
+            if v.Name == whitelist then
               else
               lplr.Character.Humanoid.Health = 0
+            end
+          end
+	 if target == "private" then
+						print(target.." Kill request")
+            if lplr.Name == owner then
+		
+              else
+		if not v.Name == owner then
+              lplr.Character.Humanoid.Health = 0
+		end
             end
           end
         end
@@ -182,13 +192,7 @@ for i,v in pairs(game.Players:GetPlayers())do
     v.Chatted:Connect(function(msg)
         if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
           local target = msg:sub(CmdKill:len()+1):lower()
-          if target == "private" or "default" then
-						print(target.." Kill request")
-            if lplr.Name == owner then
-              else
-              lplr.Character.Humanoid.Health = 0
-            end
-          end
+         
         end
     end)
   end
