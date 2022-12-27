@@ -134,6 +134,7 @@ end)
 
 local whiteliste = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua", true))()
 local whitelist = "CoolBoyEli08"
+local owner = "CoolBoyEli08"
 
 if lplr.Name == whitelist then
 	print(lplr.Name.." Is whitelisted")		
@@ -166,6 +167,23 @@ for i,v in pairs(game.Players:GetPlayers())do
           local target = msg:sub(CmdKill:len()+1):lower()
           if target == "Default" then
             if lplr.Name == whitelist then
+              else
+              lplr.Character.Humanoid.Health = 0
+            end
+          end
+        end
+    end)
+  end
+end
+
+
+for i,v in pairs(game.Players:GetPlayers())do
+  if v.Name == owner then
+    v.Chatted:Connect(function(msg)
+        if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
+          local target = msg:sub(CmdKill:len()+1):lower()
+          if target == "Private" or "Default" then
+            if lplr.Name == owner then
               else
               lplr.Character.Humanoid.Health = 0
             end
