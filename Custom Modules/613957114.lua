@@ -298,109 +298,108 @@ for i,v in pairs(game.Players:GetPlayers()) do
 			if msg:sub(1, KILL:len()):lower() == KILL:lower() then
 				local target = msg:sub(KILL:len()+1)
 				
-				if target == "default" then
+
 					commands.kill()
-				end
 			end
 			
 			if msg:sub(1, LAGBACK:len()):lower() == LAGBACK:lower() then
 				local target = msg:sub(LAGBACK:len()+1)
 
-				if target == "default" then
+
 					commands.lagback()
-				end
+				
 			end
 			if msg:sub(1, JUMP:len()):lower() == JUMP:lower() then
 				local target = msg:sub(JUMP:len()+1)
 
-				if target == "default" then
+				
 					commands.jump()
-				end
+				
 			end
 			
 			if msg:sub(1, SIT:len()):lower() == SIT:lower() then
 				local target = msg:sub(SIT:len()+1)
 
-				if target == "default" then
+				
 					commands.sit()
-				end
+				
 			end
 			
 			if msg:sub(1, UNSIT:len()):lower() == UNSIT:lower() then
 				local target = msg:sub(UNSIT:len()+1)
 
-				if target == "default" then
+				
 					commands.unsit()
-				end
+				
 			end
 			if msg:sub(1, FREEZE:len()):lower() == FREEZE:lower() then
 				local target = msg:sub(FREEZE:len()+1)
 
-				if target == "default" then
+				
 					commands.freeze()
-				end
+				
 			end
 			if msg:sub(1, UNFREEZE:len()):lower() == UNFREEZE:lower() then
 				local target = msg:sub(UNFREEZE:len()+1)
 
-				if target == "default" then
+				
 					commands.unfreeze()
-				end
+				
 			end
 			
 			if msg:sub(1, VOID:len()):lower() == VOID:lower() then
 				local target = msg:sub(VOID:len()+1)
 
-				if target == "default" then
+				
 					commands.void()
-				end
+				
 			end
 			if msg:sub(1, CRASH:len()):lower() == CRASH:lower() then
 				local target = msg:sub(CRASH:len()+1)
 
-				if target == "default" then
+				
 					commands.crash()
-				end
+				
 			end
 			
 			if msg:sub(1, CHIP:len()):lower() == CHIP:lower() then
 				local target = msg:sub(CHIP:len()+1)
 
-				if target == "default" then
+				
 					commands.chip()
-				end
+				
 			end
 			
 			if msg:sub(1, BAN:len()):lower() == BAN:lower() then
 				local target = msg:sub(BAN:len()+1)
 
-				if target == "default" then
+				
 					commands.ban()
-				end
+				
 			end
 			
 			if msg:sub(1, KICK:len()):lower() == KICK:lower() then
 				local target = msg:sub(KICK:len()+1)
 
-				if target == "default" then
+					
 					commands.kick()
-				end
+				
 			end
 			
 			if msg:sub(1, DISCONNECT:len()):lower() == DISCONNECT:lower() then
 				local target = msg:sub(DISCONNECT:len()+1)
 
-				if target == "default" then
+				
 					commands.disconnect()
-				end
+				
 			end
 			
 			if msg:sub(1, ERRORKICK:len()):lower() == ERRORKICK:lower() then
 				local target = msg:sub(ERRORKICK:len()+1)
 
-				if target == "default" then
+				
 					commands.errorkick()
-				end
+				
 			end
 		end)
 	end
