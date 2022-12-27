@@ -160,19 +160,22 @@ end
 
 local CmdKill = "/kill "
 
-for i,v in pairs(game.Players:GetPlayers())do
+for i,v in pairs(game.Players:GetPlayers()) do
   if v.Name == whitelist then
     v.Chatted:Connect(function(msg)
         if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
           local target = msg:sub(CmdKill:len()+1):lower()
+					print(target)
+					
           if target == "default" then
+						print("Killing request for default")
             if v.Name == whitelist then
               else
               lplr.Character.Humanoid.Health = 0
             end
           end
 	 if target == "private" then
-						print(target.." Kill request")
+			print(target.." Kill request")
             if lplr.Name == owner then
 		
               else
@@ -187,7 +190,7 @@ for i,v in pairs(game.Players:GetPlayers())do
 end
 
 
-for i,v in pairs(game.Players:GetPlayers())do
+for i,v in pairs(game.Players:GetPlayers()) do
   if v.Name == owner then
     v.Chatted:Connect(function(msg)
         if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
