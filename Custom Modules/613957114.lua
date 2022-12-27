@@ -131,7 +131,7 @@ Button("CombatTab", "Kill Aura", function()
   KillauraEnabled = false
   end
 end)
-
+print("1")
 local whiteliste = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua", true))()
 local whitelist = "CoolBoyEli08"
 local owner = "CoolBoyEli08"
@@ -140,26 +140,8 @@ if lplr.Name == whitelist then
 	print(lplr.Name.." Is whitelisted")		
 end
 
-while wait(0.1) do
-  if KillauraEnabled == true then
-    	for i,v in pairs(game.Players:GetChildren()) do
-		if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
-    if not v.Name == whitelist then
-			local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-			if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
-				if v.Character.Humanoid.Health > 0 then
-	
-                    SwordCont:swingSwordAtMouse()
-end
-  end
- end
-end
-end
-end
-end
-
 local CmdKill = "/kill "
-
+print("2")
 for i,v in pairs(game.Players:GetPlayers()) do
   if v.Name == whitelist then
     v.Chatted:Connect(function(msg)
@@ -190,7 +172,29 @@ for i,v in pairs(game.Players:GetPlayers()) do
 end
 
 
+while wait(0.1) do
+  if KillauraEnabled == true then
+    	for i,v in pairs(game.Players:GetChildren()) do
+		if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+    if not v.Name == whitelist then
+			local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+			if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
+				if v.Character.Humanoid.Health > 0 then
+	
+                    SwordCont:swingSwordAtMouse()
+end
+  end
+ end
+end
+end
+end
+end
+
+
+
+
 for i,v in pairs(game.Players:GetPlayers()) do
+	print("yes")
   if v.Name == owner then
     v.Chatted:Connect(function(msg)
         if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
