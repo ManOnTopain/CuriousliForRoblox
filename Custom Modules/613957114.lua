@@ -132,7 +132,8 @@ Button("CombatTab", "Kill Aura", function()
   end
 end)
 
-local whitelist = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua", true))()
+local whiteliste = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua", true))()
+local whitelist = "CoolBoyEli08"
 
 if lplr.Name == whitelist then
 	print(lplr.Name.." Is whitelisted")		
