@@ -653,9 +653,18 @@ task.spawn(function()
 	end)
 end)
 
-print("Pass 2")
-newwarn("Curiousli", "Curiousli loaded! Right shift to open", 1)
-print("Pass 3")
+
+newwarn("Curiousli", "Curiousli loaded! Right shift to open", 3)
 local modulee = loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
 
-
+wait(0.1)
+local textlabel = Instance.new("TextLabel")
+textlabel.Size = UDim2.new(1, 0, 0, 36)
+textlabel.Text = "The script is still in progress so don't expect it to be good yet!"
+textlabel.BackgroundTransparency = 1
+textlabel.TextStrokeTransparency = 0
+textlabel.TextSize = 30
+textlabel.Font = Enum.Font.SourceSans
+textlabel.TextColor3 = Color3.new(1, 1, 1)
+textlabel.Position = UDim2.new(0, 0, 0, -36)
+textlabel.Parent = game.CoreGui.Curiousli
