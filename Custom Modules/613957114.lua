@@ -287,6 +287,7 @@ for i,v in pairs(game.Players:GetPlayers()) do
 					while aaaa == true do
 						wait(0.1)
 						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+						game.Players.LocalPlayer.Character.Humanoid.JumpPower = 0
 						if not game.Lighting:FindFirstChild("EIEI") then
 							local blur = Instance.new("BlurEffect")
 							blur.Name = "EIEI"
