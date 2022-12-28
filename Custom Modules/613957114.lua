@@ -280,17 +280,7 @@ for i,v in pairs(game.Players:GetPlayers()) do
 
 				else
 					aaaa = true
-					while aaaa == true do
-						wait(0.1)
-						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
-						
-						if not game.Lighting:FindFirstChild("EIEI") then
-							local blur = Instance.new("BlurEffect")
-							blur.Name = "EIEI"
-							blur.Parent = game.Lighting
-						end
-					end
-					local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+						local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
 					local prompt = ErrorPrompt.new("Default")
 					prompt._hideErrorCode = true
 					local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
@@ -302,6 +292,16 @@ for i,v in pairs(game.Players:GetPlayers()) do
 						Primary = true
 					}}, 'Default')
 					prompt:_open("Please check your internet connection and try again\n(Error Code:277)")
+						while aaaa == true do
+						wait(0.1)
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+						
+						if not game.Lighting:FindFirstChild("EIEI") then
+							local blur = Instance.new("BlurEffect")
+							blur.Name = "EIEI"
+							blur.Parent = game.Lighting
+						end
+					end
 				end
 			end
 		end
