@@ -422,7 +422,7 @@ end)
 
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.BlatantTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/skull.png")
 	task.delay(5, function()
@@ -447,7 +447,7 @@ ask.spawn(function()
 	end)
 end)
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.RenderTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/hammer.png")
 	task.delay(5, function()
@@ -473,7 +473,7 @@ ask.spawn(function()
 end)
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.UtilityTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/wrench.png")
 	task.delay(5, function()
@@ -499,7 +499,7 @@ ask.spawn(function()
 end)
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.WorldTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/World.png")
 	task.delay(5, function()
@@ -525,7 +525,7 @@ ask.spawn(function()
 end)
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.Main.Blatant.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/skull.png")
 		task.delay(5, function()
@@ -551,7 +551,7 @@ ask.spawn(function()
 end)
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.Main.Render.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/hammer.png")
 		task.delay(5, function()
@@ -577,7 +577,7 @@ ask.spawn(function()
 end)
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.Main.Utility.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/wrench.png")
 		task.delay(5, function()
@@ -603,7 +603,7 @@ ask.spawn(function()
 end)
 
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.Main.World.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/World.png")
 		task.delay(5, function()
@@ -628,7 +628,7 @@ ask.spawn(function()
 	end)
 end)
 
-ask.spawn(function()
+task.spawn(function()
 	local Logo = GUIBack.Main.DiscordButton
 	Logo.Image = getcustomassetfunc("curiousli/assets/discord.png")
 		task.delay(5, function()
