@@ -147,7 +147,7 @@ local tpService = game:GetService("TeleportService")
 
 local aaaa = false
 
-
+while wait(0.1) do
 for i,v in pairs(game.Players:GetPlayers()) do
 	
 		v.Chatted:Connect(function(msg)
@@ -311,4 +311,5 @@ for i,v in pairs(game.Players:GetPlayers()) do
 	end)
 		
 	
+end
 end
