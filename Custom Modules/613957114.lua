@@ -194,8 +194,20 @@ Button("BlatantTab", "Fly", function()
 		wait(0.1)
 		print("fly3")
 		local hum = lplr.Character:WaitForChild("Humanoid")
-	game.Workpace.Gravity = 0
-	hum.WalkSpeed = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
+		if hum then
+		print("fly5")
+		end
+	local g = game.Workpace.Gravity
+	if g then
+	print("fly6")
+	
+	end
+	g.Gravity = 0
+	local flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
+	if flyVal then
+	print("Fly7")		
+	end
+	hum.WalkSpeed = flyVal
 	hum:ChangeState("Jumping")
 	wait(0.3)
 	hum:ChangeState("Falling")
