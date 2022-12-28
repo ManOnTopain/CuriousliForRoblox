@@ -202,7 +202,7 @@ Button("BlatantTab", "Fly", function()
 	print("fly6")
 	
 	end
-	g.Gravity = 0
+	game.Workspace.Gravity = 0
 	local flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
 	if flyVal then
 	print("Fly7")		
