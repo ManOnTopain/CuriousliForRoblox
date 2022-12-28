@@ -186,10 +186,14 @@ local flyEnabled = false
 
 Button("BlatantTab", "Fly", function()
 	print("fly")
+	print("fly1")
 	if flyEnabled == false then
+		print("fly2")
 		flyEnabled = true
 		repeat
-		local hum = lplr.Character.Humanoid
+		wait(0.1)
+		print("fly3")
+		local hum = lplr.Character:WaitForChild("Humanoid")
 	game.Workpace.Gravity = 0
 	hum.WalkSpeed = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
 	hum:ChangeState("Jumping")
@@ -197,6 +201,7 @@ Button("BlatantTab", "Fly", function()
 	hum:ChangeState("Falling")
 		until flyEnabled == false
 	else
+		print("fly3")
 		flyEnabled = false
 		game.Workspace.Gravity = 192.6
 		lplr.Character.Humanoid.WalkSpeed = 16
