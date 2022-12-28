@@ -182,17 +182,16 @@ Button("CombatTab", "Kill Aura", function()
   end
 end)
 
-local flyVal = 0
 local flyEnabled = false
 
 Button("BlatantTab", "Fly", function()
+	print("fly")
 	if flyEnabled == false then
 		flyEnabled = true
 		repeat
 		local hum = lplr.Character.Humanoid
 	game.Workpace.Gravity = 0
-	flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
-	hum.WalkSpeed = flyVal
+	hum.WalkSpeed = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
 	hum:ChangeState("Jumping")
 	wait(0.3)
 	hum:ChangeState("Falling")
