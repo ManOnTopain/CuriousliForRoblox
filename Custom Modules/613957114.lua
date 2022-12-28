@@ -29,8 +29,8 @@ end
 local function Value(Tab, Button, Name)
 	local template_value = Instance.new("TextBox")
 	template_value.Font = Enum.Font.SourceSans
-	template_value.Text = Button.." Value"
-	template_value.PlaceholderText = "Value here"
+	template_value.Text = ""
+	template_value.PlaceholderText = Button.." Value"
 	template_value.TextColor3 = Color3.new(0, 0, 0)
 	template_value.TextScaled = true
 	template_value.TextSize = 14
@@ -41,6 +41,55 @@ local function Value(Tab, Button, Name)
 	template_value.Name = Name
 	template_value.Parent = game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main
 	
+end
+
+local function newwarn(Title, Text, Delay)
+	
+local warn = Instance.new("Frame")
+warn.BackgroundColor3 = Color3.new(0.192157, 0.180392, 0.0784314)
+warn.BackgroundTransparency = 0.4000000059604645
+warn.Position = UDim2.new(0, 0, 0.480000019, 0)
+warn.Size = UDim2.new(1.00000012, 0, 0.227368414, 0)
+warn.Visible = true
+warn.Name = "Warn"
+warn.Parent = game.CoreGui.Curiousli.WarnList
+
+local uicorner = Instance.new("UICorner")
+uicorner.Parent = warn
+
+local uistroke = Instance.new("UIStroke")
+uistroke.Parent = warn
+
+local titletext = Instance.new("TextLabel")
+titletext.Font = Enum.Font.SourceSansBold
+titletext.Text = Title
+titletext.TextColor3 = Color3.new(0, 0, 0)
+titletext.TextScaled = true
+titletext.TextSize = 14
+titletext.TextWrapped = true
+titletext.BackgroundColor3 = Color3.new(1, 1, 1)
+titletext.BackgroundTransparency = 1
+titletext.Size = UDim2.new(0.999999881, 0, 0.296296299, 0)
+titletext.Visible = true
+titletext.Name = "TitleText"
+titletext.Parent = warn
+
+local texttext = Instance.new("TextLabel")
+texttext.Font = Enum.Font.SourceSansBold
+texttext.Text = Text
+texttext.TextColor3 = Color3.new(0, 0, 0)
+texttext.TextScaled = true
+texttext.TextSize = 14
+texttext.TextWrapped = true
+texttext.BackgroundColor3 = Color3.new(1, 1, 1)
+texttext.BackgroundTransparency = 1
+texttext.Position = UDim2.new(0.0235690214, 0, 0.398148149, 0)
+texttext.Size = UDim2.new(0.952861845, 0, 0.527777791, 0)
+texttext.Visible = true
+texttext.Name = "TextText"
+texttext.Parent = warn	
+task.wait(Delay)
+warn:Destroy()
 end
 
 local players = game:GetService("Players")
@@ -127,15 +176,40 @@ Button("CombatTab", "Kill Aura", function()
   local DistVal = 14
   if KillauraEnabled == false then
   KillauraEnabled = true
+	newwarn("Curiousli", "Kill aura, Sorry but kill aura is W.I.P", 3)
   else
   KillauraEnabled = false
   end
 end)
 
-local tt = Instance.new("TextLabel")
-tt.Parent = game.CoreGui.Curiousli.Background
-tt.Text = "Sorry! developing kill aura, so it means no kill aura ;( im so sorry"
+local flyVal = 0
+local flyEnabled = false
 
+Button("BlatantTab", "Fly", function()
+	if flyEnabled == false then
+		flyEnabled = true
+	else
+		flyEnabled = false
+		game.Workspace.Gravity = 192.6
+		lplr.Character.Humanoid.WalkSpeed = 16
+	end
+end)
+
+Value("BlatantTab", "Fly", "FlyValue")
+
+while wait(0.1) do
+	if flyEnabled == true then
+	local hum = lplr.Character.Humanoid
+	game.Workpace.Gravity = 0
+	flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
+	hum.WalkSpeed = flyVal
+	hum:ChangeState("Jumping")
+	wait(0.3)
+	hum:ChangeState("Falling")
+	end
+end
+
+print("Continuing")
 local function addvectortocframe(cframe, vec)
 	local x, y, z, R00, R01, R02, R10, R11, R12, R20, R21, R22 = cframe:GetComponents()
 	return CFrame.new(x + vec.X, y + vec.Y, z + vec.Z, R00, R01, R02, R10, R11, R12, R20, R21, R22)
