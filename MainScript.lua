@@ -68,7 +68,54 @@ local function Value(Tab, Button, Name)
 	
 end
 
+local function newwarn(Title, Text, Delay)
+	
+local warn = Instance.new("Frame")
+warn.BackgroundColor3 = Color3.new(0.192157, 0.180392, 0.0784314)
+warn.BackgroundTransparency = 0.4000000059604645
+warn.Position = UDim2.new(0, 0, 0.480000019, 0)
+warn.Size = UDim2.new(1.00000012, 0, 0.227368414, 0)
+warn.Visible = true
+warn.Name = "Warn"
+warn.Parent = game.CoreGui.Curiousli.WarnList
 
+local uicorner = Instance.new("UICorner")
+uicorner.Parent = warn
+
+local uistroke = Instance.new("UIStroke")
+uistroke.Parent = warn
+
+local titletext = Instance.new("TextLabel")
+titletext.Font = Enum.Font.SourceSansBold
+titletext.Text = Title
+titletext.TextColor3 = Color3.new(0, 0, 0)
+titletext.TextScaled = true
+titletext.TextSize = 14
+titletext.TextWrapped = true
+titletext.BackgroundColor3 = Color3.new(1, 1, 1)
+titletext.BackgroundTransparency = 1
+titletext.Size = UDim2.new(0.999999881, 0, 0.296296299, 0)
+titletext.Visible = true
+titletext.Name = "TitleText"
+titletext.Parent = warn
+
+local texttext = Instance.new("TextLabel")
+texttext.Font = Enum.Font.SourceSansBold
+texttext.Text = Text
+texttext.TextColor3 = Color3.new(0, 0, 0)
+texttext.TextScaled = true
+texttext.TextSize = 14
+texttext.TextWrapped = true
+texttext.BackgroundColor3 = Color3.new(1, 1, 1)
+texttext.BackgroundTransparency = 1
+texttext.Position = UDim2.new(0.0235690214, 0, 0.398148149, 0)
+texttext.Size = UDim2.new(0.952861845, 0, 0.527777791, 0)
+texttext.Visible = true
+texttext.Name = "TextText"
+texttext.Parent = warn	
+task.wait(Delay)
+warn:Destroy()
+end
 
 local shown = false
 
@@ -219,54 +266,7 @@ local GUILibrary = loadstring(game:HttpGet("https://raw.githubusercontent.com/Ma
 local GUI = game.CoreGui.Curiousli
 local GUIBack = GUI.Background
 
-local function newwarn(Title, Text, Delay)
-	
-local warn = Instance.new("Frame")
-warn.BackgroundColor3 = Color3.new(0.192157, 0.180392, 0.0784314)
-warn.BackgroundTransparency = 0.4000000059604645
-warn.Position = UDim2.new(0, 0, 0.480000019, 0)
-warn.Size = UDim2.new(1.00000012, 0, 0.227368414, 0)
-warn.Visible = true
-warn.Name = "Warn"
-warn.Parent = game.CoreGui.Curiousli.WarnList
 
-local uicorner = Instance.new("UICorner")
-uicorner.Parent = warn
-
-local uistroke = Instance.new("UIStroke")
-uistroke.Parent = warn
-
-local titletext = Instance.new("TextLabel")
-titletext.Font = Enum.Font.SourceSansBold
-titletext.Text = Title
-titletext.TextColor3 = Color3.new(0, 0, 0)
-titletext.TextScaled = true
-titletext.TextSize = 14
-titletext.TextWrapped = true
-titletext.BackgroundColor3 = Color3.new(1, 1, 1)
-titletext.BackgroundTransparency = 1
-titletext.Size = UDim2.new(0.999999881, 0, 0.296296299, 0)
-titletext.Visible = true
-titletext.Name = "TitleText"
-titletext.Parent = warn
-
-local texttext = Instance.new("TextLabel")
-texttext.Font = Enum.Font.SourceSansBold
-texttext.Text = Text
-texttext.TextColor3 = Color3.new(0, 0, 0)
-texttext.TextScaled = true
-texttext.TextSize = 14
-texttext.TextWrapped = true
-texttext.BackgroundColor3 = Color3.new(1, 1, 1)
-texttext.BackgroundTransparency = 1
-texttext.Position = UDim2.new(0.0235690214, 0, 0.398148149, 0)
-texttext.Size = UDim2.new(0.952861845, 0, 0.527777791, 0)
-texttext.Visible = true
-texttext.Name = "TextText"
-texttext.Parent = warn	
-task.wait(Delay)
-warn:Destroy()
-end
 
 task.spawn(function()
 	local Logo = GUIBack.Main.Logo
@@ -654,6 +654,8 @@ task.spawn(function()
 end)
 
 print("Pass 2")
+newwarn("Curiousli", "Curiousli loaded! Right shift to open", 1)
+print("Pass 3")
 local modulee = loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
 
-newwarn("Curiousli", "Curiousli loaded! Press right shift to open", 5)
+
