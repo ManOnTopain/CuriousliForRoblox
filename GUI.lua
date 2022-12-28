@@ -744,6 +744,7 @@ task.spawn(function()
 	end
 
 	script.Parent.MouseButton1Click:Connect(function()
+		shared.CuriousliExecuted = false
 		script.Parent.Parent.Parent.Parent.Parent:Destroy()
 	end)
 end)
