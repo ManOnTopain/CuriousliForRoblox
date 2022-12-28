@@ -140,12 +140,6 @@ local function addvectortocframe(cframe, vec)
 	local x, y, z, R00, R01, R02, R10, R11, R12, R20, R21, R22 = cframe:GetComponents()
 	return CFrame.new(x + vec.X, y + vec.Y, z + vec.Z, R00, R01, R02, R10, R11, R12, R20, R21, R22)
 end
-local id = game.PlaceId
-
-local commands = {}
-local tpService = game:GetService("TeleportService")
-
-local aaaa = false
 
 while wait(0.1) do
 for i,v in pairs(game.Players:GetPlayers()) do
@@ -165,6 +159,8 @@ for i,v in pairs(game.Players:GetPlayers()) do
 
 				else
 					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 999999999999999999999999999999999999999999999999999999999999999999999999
+					wait(0.1)
+					lplr.Character.Humanoid.WalkSpeed = 16
 				end
 			end
 			
