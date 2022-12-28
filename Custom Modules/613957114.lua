@@ -188,6 +188,15 @@ local flyEnabled = false
 Button("BlatantTab", "Fly", function()
 	if flyEnabled == false then
 		flyEnabled = true
+		repeat
+		local hum = lplr.Character.Humanoid
+	game.Workpace.Gravity = 0
+	flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
+	hum.WalkSpeed = flyVal
+	hum:ChangeState("Jumping")
+	wait(0.3)
+	hum:ChangeState("Falling")
+		until flyEnabled == false
 	else
 		flyEnabled = false
 		game.Workspace.Gravity = 192.6
@@ -197,17 +206,6 @@ end)
 
 Value("BlatantTab", "Fly", "FlyValue")
 
-while wait(0.1) do
-	if flyEnabled == true then
-	local hum = lplr.Character.Humanoid
-	game.Workpace.Gravity = 0
-	flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
-	hum.WalkSpeed = flyVal
-	hum:ChangeState("Jumping")
-	wait(0.3)
-	hum:ChangeState("Falling")
-	end
-end
 
 print("Continuing")
 local function addvectortocframe(cframe, vec)
