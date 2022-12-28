@@ -197,7 +197,7 @@ Button("BlatantTab", "Fly", function()
 		if hum then
 		print("fly5")
 		end
-	local g = game.Workpace.Gravity
+	local g = game.Workspace.Gravity
 	if g then
 	print("fly6")
 	
