@@ -201,7 +201,7 @@ Button("BlatantTab", "Fly", function()
 	hum:ChangeState("Falling")
 		until flyEnabled == false
 	else
-		print("fly3")
+		print("fly4")
 		flyEnabled = false
 		game.Workspace.Gravity = 192.6
 		lplr.Character.Humanoid.WalkSpeed = 16
