@@ -322,14 +322,187 @@ task.spawn(function()
 	end)
 end)
 
-local TestE = false
-Button("CombatTab", "Test", function()
-if TestE == false then
-    print("Test")
-    TestE = true
-    else
-    TestE = false
-end
+task.spawn(function()
+	local Logo = GUIBack.Main.Settings.Credits.Vape
+	Logo.Image = getcustomassetfunc("curiousli/assets/VapeLogo1.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
+end)
+
+task.spawn(function()
+	local Logo = GUIBack.Main.Settings.Credits.VapeTwo
+	Logo.Image = getcustomassetfunc("curiousli/assets/VapeLogo2.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
+end)
+
+
+
+ask.spawn(function()
+	local Logo = GUIBack.BlatantTab.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/skull.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
+end)
+
+ask.spawn(function()
+	local Logo = GUIBack.RenderTab.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/hammer.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
+end)
+
+
+ask.spawn(function()
+	local Logo = GUIBack.UtilityTab.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/wrench.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
+end)
+
+
+ask.spawn(function()
+	local Logo = GUIBack.WorldTab.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/World.png")
+	task.delay(5, function()
+		if Logo.ContentImageSize == Vector2.new(0, 0) and (not shown) and (not redownload) and (not betterisfile("curiousli/assets/check2.txt")) then 
+			shown = true
+			local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+			local prompt = ErrorPrompt.new("Default")
+			prompt._hideErrorCode = true
+			local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+			prompt:setParent(gui)
+			prompt:setErrorTitle("Curiousli")
+			prompt:updateButtons({{
+				Text = "OK",
+				Callback = function() 
+					prompt:_close() 
+					writefile("curiousli/assets/check2.txt", "")
+				end,
+				Primary = true
+			}}, 'Default')
+			prompt:_open("Curiousli has detected that you have a skill issue and cannot load assets, Consider getting a better executor.")
+		end
+	end)
+end)
+
+
+ask.spawn(function()
+	local Logo = GUIBack.Main.Blatant.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/skull.png")
+end)
+
+
+ask.spawn(function()
+	local Logo = GUIBack.Main.Render.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/hammer.png")
+end)
+
+
+ask.spawn(function()
+	local Logo = GUIBack.Main.Utility.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/wrench.png")
+end)
+
+
+ask.spawn(function()
+	local Logo = GUIBack.Main.World.Logo
+	Logo.Image = getcustomassetfunc("curiousli/assets/World.png")
+end)
+
+ask.spawn(function()
+	local Logo = GUIBack.Main.DiscordButton
+	Logo.Image = getcustomassetfunc("curiousli/assets/discord.png")
 end)
 
 local modulee = loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
