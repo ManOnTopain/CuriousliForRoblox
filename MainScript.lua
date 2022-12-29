@@ -654,6 +654,16 @@ task.spawn(function()
 		end
 	end)
 end)
+local GUII = game.CoreGui.Curiousli
+local CrashLogo = GUII.CRASH.Main
+
+task.spawn(function()
+if syn and syn.request then
+	CrashLogo.Image = getcustomassetfunc("curiousli/assets/SynapseCrash.png")
+	else
+	CrashLogo.Image = getcustomassetfunc("curiousli/assets/ExploitCrash.png")
+end
+end)
 
 
 newwarn("Curiousli", "Curiousli loaded! Right shift to open", 3)
@@ -670,3 +680,4 @@ textlabel.Font = Enum.Font.SourceSans
 textlabel.TextColor3 = Color3.new(1, 1, 1)
 textlabel.Position = UDim2.new(0, 0, 0, -36)
 textlabel.Parent = game.CoreGui.Curiousli
+textlabel.Name = "Progress"
