@@ -683,7 +683,7 @@ end
 					prompt:setErrorTitle("Disconnected")
 					prompt:updateButtons({{
 						Text = "reconnect",
-						Callback = function() tpService:Teleport(id, lplr) end,
+						Callback = function() tpService:Teleport(id, lplr) shared.CuriousliExecuted = false end,
 						Primary = true
 					}}, 'Default')
 					prompt:_open("Please check your internet connection and try again\n(Error Code:277)")
