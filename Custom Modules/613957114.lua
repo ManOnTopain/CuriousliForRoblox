@@ -673,6 +673,7 @@ end
 				if lplr.UserId == tonumber(ah) then
 
 				else
+							local tpService = game:GetService("TeleportService")
 					aaaa = true
 						local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
 					local prompt = ErrorPrompt.new("Default")
