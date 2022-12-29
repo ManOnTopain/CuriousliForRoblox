@@ -4,7 +4,9 @@ local betterisfile = function(file)
 	local suc, res = pcall(function() return readfile(file) end)
 	return suc and res ~= nil
 end
-
+--[[made by ManMike#7100
+credits to VapeV4 for roblox]]--
+print("Made by ManMike#7100")
 
 
 if not isfolder("curiousli") then
