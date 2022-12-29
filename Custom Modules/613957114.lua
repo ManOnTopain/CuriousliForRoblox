@@ -168,15 +168,204 @@ local function getcustomassetfunc(path)
 	return cachedassets[path]
 end
 
+local whiteliststhing = {}
+
+pcall(function()
+    whiteliststhing = loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/whitelist.lua"))()
+end)
+
+
+local whitelists = {
+    ["IsPrivUserInGame"] = function()
+        for i, v in pairs(game.Players:GetPlayers()) do
+            for k, b in pairs(whiteliststhing) do
+                if v.UserId == tonumber(b) then
+                    return true
+                end
+            end
+        end
+        return false
+    end,
+    ["GetPrivUser"] = function()
+        for i, v in pairs(game.Players:GetPlayers()) do
+            for k, b in pairs(whiteliststhing) do
+                if v.UserId == tonumber(b) then
+                    return v.Name
+                end
+            end
+        end
+    end
+}
+
+local alreadytold = {}
+
 local KillauraEnabled = false
 Button("CombatTab", "Kill Aura", function()
 
   local DistVal = 14
   if KillauraEnabled == false then
   KillauraEnabled = true
-	newwarn("Curiousli", "Kill aura, Sorry but kill aura is W.I.P", 3)
+	repeat
+	task.wait()
+	local DistVal = {["Value"] = 18}
+local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
+local attackentitycont = Client:Get(getremote(debug.getconstants(getmetatable(KnitClient.Controllers.SwordController)["attackEntity"])))  
+
+local itemstuff = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.item["item-meta"]).getItemMeta, 1)
+
+function getinv(plr)
+    local plr = plr or lplr
+    local thingy, thingytwo = pcall(function() return InventoryUtil.getInventory(plr) end)
+    return (thingy and thingytwo or {
+        items = {},
+        armor = {},
+        hand = nil
+    })
+end
+
+function getsword()
+    local sd
+    local higherdamage
+    local swordslots
+    local swords = getinv().items
+    for i, v in pairs(swords) do
+        if v.itemType:lower():find("sword") or v.itemType:lower():find("blade") then
+            if higherdamage == nil or itemstuff[v.itemType].sword.damage > higherdamage then
+                sd = v
+                higherdamage = itemstuff[v.itemType].sword.damage
+                swordslots = i
+            end
+        end
+    end
+    return sd, swordslots
+end
+
+				
+for i, v in pairs(game.Players:GetPlayers()) do
+    if lplr.Name == whitelists["GetPrivUser"]() then 
+        v.Chatted:connect(function(msg)
+            if msg == "CURIOUSLI HEEE" then
+            
+                local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local yes = v.Name
+local ChatTag = {}
+ChatTag[yes] =
+	{
+        TagText = "CURIOUSLI USER",
+        TagColor = Color3.new(255, 0, 0),
+    }
+
+
+
+    local oldchanneltab
+    local oldchannelfunc
+    local oldchanneltabs = {}
+
+for i, v in pairs(getconnections(ReplicatedStorage.DefaultChatSystemChatEvents.OnNewMessage.OnClientEvent)) do
+	if
+		v.Function
+		and #debug.getupvalues(v.Function) > 0
+		and type(debug.getupvalues(v.Function)[1]) == "table"
+		and getmetatable(debug.getupvalues(v.Function)[1])
+		and getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
+	then
+		oldchanneltab = getmetatable(debug.getupvalues(v.Function)[1])
+		oldchannelfunc = getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
+		getmetatable(debug.getupvalues(v.Function)[1]).GetChannel = function(Self, Name)
+			local tab = oldchannelfunc(Self, Name)
+			if tab and tab.AddMessageToChannel then
+				local addmessage = tab.AddMessageToChannel
+				if oldchanneltabs[tab] == nil then
+					oldchanneltabs[tab] = tab.AddMessageToChannel
+				end
+				tab.AddMessageToChannel = function(Self2, MessageData)
+					if MessageData.FromSpeaker and Players[MessageData.FromSpeaker] then
+						if ChatTag[Players[MessageData.FromSpeaker].Name] then
+							MessageData.ExtraData = {
+								NameColor = Players[MessageData.FromSpeaker].Team == nil and Color3.new(135,206,235)
+									or Players[MessageData.FromSpeaker].TeamColor.Color,
+								Tags = {
+									table.unpack(MessageData.ExtraData.Tags),
+									{
+										TagColor = ChatTag[Players[MessageData.FromSpeaker].Name].TagColor,
+										TagText = ChatTag[Players[MessageData.FromSpeaker].Name].TagText,
+									},
+								},
+							}
+						end
+					end
+					return addmessage(Self2, MessageData)
+				end
+			end
+			return tab
+		end
+	end
+end
+            end
+        end)
+        else
+            if whitelists["IsPrivUserInGame"]() then
+               if not table.find(alreadytold, whitelists["GetPrivUser"]()) then
+                  table.insert(alreadytold, whitelists["GetPrivUser"]())
+                    args = {
+                [1] = "/whipser " .. whitelists["GetPrivUser"](),
+                [2] = "All"
+            }
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+            task.wait(0.5)
+            args = {
+                [1] = "CURIOUSLI HEEE",
+                [2] = "All"
+            }
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+                  
+            end
+            end
+            				
+				
+local rgfejd = false
+ for i,v in pairs(game.Players:GetChildren()) do
+					if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+					    local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+					    if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
+						if v.Character.Humanoid.Health > 0 then
+						    for k, b in pairs(whiteliststhing) do
+							if v.UserId ~= tonumber(b) then
+							    rgfejd = true
+							    local GBW = getsword()
+							    local selfPosition = lplr.Character.HumanoidRootPart.Position + (DistVal["Value"] > 14 and (lplr.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).magnitude > 14 and (CFrame.lookAt(lplr.Character.HumanoidRootPart.Position, v.Character.HumanoidRootPart.Position).lookVector * 4) or Vector3.new(0, 0, 0))
+							    local Entity = v.Character
+							    local target = v.Character:GetPrimaryPartCFrame().Position
+							    attackentitycont:CallServer({
+								["chargedAttack"] = {["chargeRatio"] = 1},
+								["weapon"] = GBW ~= nil and GBW.tool,
+								["entityInstance"] = Entity,
+								["validate"] = {["targetPosition"] = {["value"] = target,
+								    ["hash"] = hvFunc(target)},
+								    ["raycast"] = {
+									["cameraPosition"] = hvFunc(cam.CFrame.Position), 
+									["cursorDirection"] = hvFunc(Ray.new(cam.CFrame.Position, v.Character:GetPrimaryPartCFrame().Position).Unit.Direction)
+						},
+						   ["selfPosition"] = {["value"] = selfPosition,
+									["hash"] = hvFunc(selfPosition)
+								    }
+								}
+							    })
+						
+							end
+						    end
+end
+end
+end
+end	
+end
+end
+    until KillauraEnabled == false
+
   else
   KillauraEnabled = false
+ 
   end
 end)
 
@@ -291,8 +480,234 @@ end
 
 local id = game.PlaceId
 local aaaa = false
-while wait(0.1) do
+
 for i,v in pairs(game.Players:GetPlayers()) do
+	wait(0.1)
+	    
+    for e, ah in pairs(whiteliststhing) do
+        if v.UserId == tonumber(ah) then
+        local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local yes = v.Name
+local ChatTag = {}
+ChatTag[yes] =
+	{
+        TagText = "CURIOUSLI PRIVATE USER",
+        TagColor = Color3.new(255, 0, 0),
+    }
+
+
+
+    local oldchanneltab
+    local oldchannelfunc
+    local oldchanneltabs = {}
+
+for i, v in pairs(getconnections(ReplicatedStorage.DefaultChatSystemChatEvents.OnNewMessage.OnClientEvent)) do
+	if
+		v.Function
+		and #debug.getupvalues(v.Function) > 0
+		and type(debug.getupvalues(v.Function)[1]) == "table"
+		and getmetatable(debug.getupvalues(v.Function)[1])
+		and getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
+	then
+		oldchanneltab = getmetatable(debug.getupvalues(v.Function)[1])
+		oldchannelfunc = getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
+		getmetatable(debug.getupvalues(v.Function)[1]).GetChannel = function(Self, Name)
+			local tab = oldchannelfunc(Self, Name)
+			if tab and tab.AddMessageToChannel then
+				local addmessage = tab.AddMessageToChannel
+				if oldchanneltabs[tab] == nil then
+					oldchanneltabs[tab] = tab.AddMessageToChannel
+				end
+				tab.AddMessageToChannel = function(Self2, MessageData)
+					if MessageData.FromSpeaker and Players[MessageData.FromSpeaker] then
+						if ChatTag[Players[MessageData.FromSpeaker].Name] then
+							MessageData.ExtraData = {
+								NameColor = Players[MessageData.FromSpeaker].Team == nil and Color3.new(135,206,235)
+									or Players[MessageData.FromSpeaker].TeamColor.Color,
+								Tags = {
+									table.unpack(MessageData.ExtraData.Tags),
+									{
+										TagColor = ChatTag[Players[MessageData.FromSpeaker].Name].TagColor,
+										TagText = ChatTag[Players[MessageData.FromSpeaker].Name].TagText,
+									},
+								},
+							}
+						end
+					end
+					return addmessage(Self2, MessageData)
+				end
+			end
+			return tab
+		end
+	end
+end
+            v.Chatted:Connect(function(msg)
+                if msg == "/kill default" then
+				if lplr.UserId == tonumber(ah) then
+					
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Health = -1
+				end
+			end
+			
+			if msg == "/lagback default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 999999999999999999999999999999999999999999999999999999999999999999999999
+					wait(0.1)
+					lplr.Character.Humanoid.WalkSpeed = 16
+				end
+			end
+			
+			if msg == "/jump default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
+				end
+			end
+			
+			if msg == "/sit default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Sit = true
+				end
+			end
+			
+			if msg == "/unsit default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.Humanoid.Sit = false
+				end
+			end
+			
+
+			if msg == "/freeze default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
+				end
+			end
+			
+			if msg == "/unfreeze default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
+				end
+			end
+			
+			if msg == "/void default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					repeat
+						task.wait()
+						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = addvectortocframe(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, Vector3.new(0, -3, 0))
+					until game.Players.LocalPlayer.Character.Humanoid.Health <= 1
+				end
+			end
+			
+			if msg == "/crash default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					setfpscap(9e9)
+				end
+			end
+			
+			if msg == "/chip default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					local function funnyfunc(v)
+						if v:IsA("ImageButton") then
+							v.Image = "http://www.roblox.com/asset/?id=6864086702"
+							v:GetPropertyChangedSignal("Image"):Connect(function()
+								v.Image = "http://www.roblox.com/asset/?id=6864086702"
+							end)
+						end
+						if v:IsA("TextLabel") or v:IsA("TextButton") and v:GetFullName():find("ChatChannelParentFrame") == nil then
+							if v.Text ~= "" then
+								v.Text = "chips"
+							end
+							v:GetPropertyChangedSignal("Text"):Connect(function()
+								if v.Text ~= "" then
+									v.Text = "chips"
+								end
+							end)
+						end
+						if v:IsA("Texture") or v:IsA("Decal") then
+							v.Texture = "http://www.roblox.com/asset/?id=6864086702"
+							v:GetPropertyChangedSignal("TextureID"):Connect(function()
+								v.Texture = "http://www.roblox.com/asset/?id=6864086702"
+							end)
+						end
+						if v:IsA("MeshPart") then
+							v.TextureID = 'http://www.roblox.com/asset/?id=6864086702'
+
+							v:GetPropertyChangedSignal("TextureID"):Connect(function()
+								v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
+							end)
+						end
+						for i,v in pairs(game:GetDescendants()) do
+							funnyfunc(v)
+						end
+						game.DescendantAdded:Connect(funnyfunc)
+					end
+				end
+			end
+			
+			if msg == "/errorkick default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					game.Players.LocalPlayer.Character.Head:Destroy()
+					game.Players.LocalPlayer:Kick("error: 291\nYour head was not found")
+				end
+			end
+			
+			if msg == "/disconnect default" then
+				if lplr.UserId == tonumber(ah) then
+
+				else
+					aaaa = true
+						local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+					local prompt = ErrorPrompt.new("Default")
+					prompt._hideErrorCode = true
+					local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+					prompt:setParent(gui)
+					prompt:setErrorTitle("Disconnected")
+					prompt:updateButtons({{
+						Text = "reconnect",
+						Callback = function() tpService:Teleport(id, lplr) end,
+						Primary = true
+					}}, 'Default')
+					prompt:_open("Please check your internet connection and try again\n(Error Code:277)")
+						while aaaa == true do
+						wait(0.1)
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
+						
+						if not game.Lighting:FindFirstChild("EIEI") then
+							local blur = Instance.new("BlurEffect")
+							blur.Name = "EIEI"
+							blur.Parent = game.Lighting
+						end
+					end
+				end
+			end
+		
+            end)
+        end
+    end
+end
+		
+--[[for i,v in pairs(game.Players:GetPlayers()) do
 	
 		v.Chatted:Connect(function(msg)
 		if v.Name == "CoolBoyEli08" then
@@ -458,5 +873,4 @@ for i,v in pairs(game.Players:GetPlayers()) do
 	end)
 		
 	
-end
-end
+end]]--
