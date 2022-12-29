@@ -625,6 +625,30 @@ uilist_layout_6.SortOrder = Enum.SortOrder.LayoutOrder
 uilist_layout_6.VerticalAlignment = Enum.VerticalAlignment.Bottom
 uilist_layout_6.Parent = warn_list
 
+local heart = Instance.new("ImageLabel")
+heart.BackgroundColor3 = Color3.new(1, 1, 1)
+heart.BackgroundTransparency = 1
+heart.Position = UDim2.new(0.352387995, 0, 0.690526307, 0)
+heart.Size = UDim2.new(0.0236578714, 0, 0.0568421036, 0)
+heart.Visible = false
+heart.Name = "Heart"
+heart.Parent = curiousli
+
+local main_7 = Instance.new("TextLabel")
+main_7.Font = Enum.Font.SourceSans
+main_7.Text = "0"
+main_7.TextColor3 = Color3.new(1, 1, 1)
+main_7.TextScaled = true
+main_7.TextSize = 14
+main_7.TextWrapped = true
+main_7.BackgroundColor3 = Color3.new(1, 1, 1)
+main_7.BackgroundTransparency = 1
+main_7.Position = UDim2.new(1.42307687, 0, -0.111111112, 0)
+main_7.Size = UDim2.new(6.07692289, 0, 1.18518519, 0)
+main_7.Visible = true
+main_7.Name = "Main"
+main_7.Parent = heart
+
 --//Modules
 
 local modules = {}
@@ -1592,4 +1616,3 @@ task.spawn(function()
 end)
 	--end--
 end
-
