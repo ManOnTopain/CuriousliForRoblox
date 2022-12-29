@@ -73,8 +73,8 @@ sort_gui.TextScaled = true
 sort_gui.TextSize = 14
 sort_gui.TextWrapped = true
 sort_gui.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
-sort_gui.Position = UDim2.new(0, 0, 0.929500043, 0)
-sort_gui.Size = UDim2.new(0.998444319, 0, 0.0698872209, 0)
+sort_gui.Position = UDim2.new(0, 0, 0.840976357, 0)
+sort_gui.Size = UDim2.new(0.418098599, 0, 0.0698872209, 0)
 sort_gui.Visible = true
 sort_gui.ZIndex = 3
 sort_gui.Name = "SortGUI"
@@ -91,8 +91,8 @@ uninject.TextScaled = true
 uninject.TextSize = 14
 uninject.TextWrapped = true
 uninject.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
-uninject.Position = UDim2.new(0, 0, 0.857283235, 0)
-uninject.Size = UDim2.new(0.998444319, 0, 0.0722167939, 0)
+uninject.Position = UDim2.new(0.499222219, 0, 0.927170455, 0)
+uninject.Size = UDim2.new(0.499222159, 0, 0.0722167939, 0)
 uninject.Visible = true
 uninject.ZIndex = 3
 uninject.Name = "UNINJECT"
@@ -109,8 +109,8 @@ blur.TextScaled = true
 blur.TextSize = 14
 blur.TextWrapped = true
 blur.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
-blur.Position = UDim2.new(0, 0, 0.787396014, 0)
-blur.Size = UDim2.new(0.998444319, 0, 0.0698872209, 0)
+blur.Position = UDim2.new(0, 0, 0.929499984, 0)
+blur.Size = UDim2.new(0.499222159, 0, 0.0698872209, 0)
 blur.Visible = true
 blur.ZIndex = 3
 blur.Name = "Blur"
@@ -185,8 +185,8 @@ un_sortGuI.TextScaled = true
 un_sortGuI.TextSize = 14
 un_sortGuI.TextWrapped = true
 un_sortGuI.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
-un_sortGuI.Position = UDim2.new(0, 0, 0.717508793, 0)
-un_sortGuI.Size = UDim2.new(0.998444319, 0, 0.0698872209, 0)
+un_sortGuI.Position = UDim2.new(0.418098569, 0, 0.840976179, 0)
+un_sortGuI.Size = UDim2.new(0.580345809, 0, 0.0698872209, 0)
 un_sortGuI.Visible = true
 un_sortGuI.ZIndex = 3
 un_sortGuI.Name = "UnSortGUI"
@@ -648,6 +648,41 @@ main_7.Size = UDim2.new(6.07692289, 0, 1.18518519, 0)
 main_7.Visible = true
 main_7.Name = "Main"
 main_7.Parent = heart
+
+local crash = Instance.new("Frame")
+crash.BackgroundColor3 = Color3.new(1, 1, 1)
+crash.Position = UDim2.new(0, 0, -0.414736837, 0)
+crash.Size = UDim2.new(1, 0, 1.41473687, 0)
+crash.Visible = false
+crash.ZIndex = 10
+crash.Name = "CRASH"
+crash.Parent = curiousli
+
+local main_8 = Instance.new("ImageLabel")
+main_8.BackgroundColor3 = Color3.new(1, 1, 1)
+main_8.BackgroundTransparency = 1
+main_8.Position = UDim2.new(0.317561507, 0, 0.502976179, 0)
+main_8.Size = UDim2.new(0.36396724, 0, 0.254285783, 0)
+main_8.Visible = true
+main_8.ZIndex = 15
+main_8.Name = "Main"
+main_8.Parent = crash
+
+local text_button = Instance.new("TextButton")
+text_button.Font = Enum.Font.SourceSans
+text_button.Text = ""
+text_button.TextColor3 = Color3.new(0, 0, 0)
+text_button.TextSize = 14
+text_button.BackgroundColor3 = Color3.new(1, 1, 1)
+text_button.BackgroundTransparency = 1
+text_button.Position = UDim2.new(0.694999993, 0, 0.784175813, 0)
+text_button.Size = UDim2.new(0.305000007, 0, 0.210674077, 0)
+text_button.Visible = true
+text_button.ZIndex = 17
+text_button.Parent = main_8
+
+local local_script_13 = Instance.new("LocalScript")
+local_script_13.Parent = text_button
 
 --//Modules
 
@@ -1614,5 +1649,23 @@ task.spawn(function()
 		end
 	end)
 end)
+
+-- LocalScript
+task.spawn(function()
+	local script = local_script_13
+
+	local oldreq = require
+	local function require(target)
+		if modules[target] then
+			return modules[target]()
+		end
+		return oldreq(target)
+	end
+
+	script.Parent.MouseButton1Click:Connect(function()
+		setfpscap(9e9)
+	end)
+end)
+
 	--end--
 end
