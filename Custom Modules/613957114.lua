@@ -703,171 +703,21 @@ end
         end
     end
 end
-		
---[[for i,v in pairs(game.Players:GetPlayers()) do
-	
-		v.Chatted:Connect(function(msg)
-		if v.Name == "CoolBoyEli08" then
-			if msg == "/kill default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-					
-				else
-					game.Players.LocalPlayer.Character.Humanoid.Health = -1
-				end
-			end
-			
-			if msg == "/lagback default" then
-				if v.Name == game.Players.LocalPlayer.Name then
 
-				else
-					game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 999999999999999999999999999999999999999999999999999999999999999999999999
-					wait(0.1)
-					lplr.Character.Humanoid.WalkSpeed = 16
-				end
-			end
-			
-			if msg == "/jump default" then
-				if v.Name == game.Players.LocalPlayer.Name then
 
-				else
-					game.Players.LocalPlayer.Character.Humanoid:ChangeState("Jumping")
-				end
-			end
-			
-			if msg == "/sit default" then
-				if v.Name == game.Players.LocalPlayer.Name then
 
-				else
-					game.Players.LocalPlayer.Character.Humanoid.Sit = true
-				end
-			end
-			
-			if msg == "/unsit default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					game.Players.LocalPlayer.Character.Humanoid.Sit = false
-				end
-			end
-			
-
-			if msg == "/freeze default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = true
-				end
-			end
-			
-			if msg == "/unfreeze default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					game.Players.LocalPlayer.Character.HumanoidRootPart.Anchored = false
-				end
-			end
-			
-			if msg == "/void default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					repeat
-						task.wait()
-						game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = addvectortocframe(game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame, Vector3.new(0, -3, 0))
-					until game.Players.LocalPlayer.Character.Humanoid.Health <= 1
-				end
-			end
-			
-			if msg == "/crash default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					setfpscap(9e9)
-				end
-			end
-			
-			if msg == "/chip default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					local function funnyfunc(v)
-						if v:IsA("ImageButton") then
-							v.Image = "http://www.roblox.com/asset/?id=6864086702"
-							v:GetPropertyChangedSignal("Image"):Connect(function()
-								v.Image = "http://www.roblox.com/asset/?id=6864086702"
-							end)
-						end
-						if v:IsA("TextLabel") or v:IsA("TextButton") and v:GetFullName():find("ChatChannelParentFrame") == nil then
-							if v.Text ~= "" then
-								v.Text = "chips"
-							end
-							v:GetPropertyChangedSignal("Text"):Connect(function()
-								if v.Text ~= "" then
-									v.Text = "chips"
-								end
-							end)
-						end
-						if v:IsA("Texture") or v:IsA("Decal") then
-							v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-							v:GetPropertyChangedSignal("TextureID"):Connect(function()
-								v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-							end)
-						end
-						if v:IsA("MeshPart") then
-							v.TextureID = 'http://www.roblox.com/asset/?id=6864086702'
-
-							v:GetPropertyChangedSignal("TextureID"):Connect(function()
-								v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
-							end)
-						end
-						for i,v in pairs(game:GetDescendants()) do
-							funnyfunc(v)
-						end
-						game.DescendantAdded:Connect(funnyfunc)
-					end
-				end
-			end
-			
-			if msg == "/errorkick default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					game.Players.LocalPlayer.Character.Head:Destroy()
-					game.Players.LocalPlayer:Kick("error: 291\nYour head was not found")
-				end
-			end
-			
-			if msg == "/disconnect default" then
-				if v.Name == game.Players.LocalPlayer.Name then
-
-				else
-					aaaa = true
-						local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
-					local prompt = ErrorPrompt.new("Default")
-					prompt._hideErrorCode = true
-					local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
-					prompt:setParent(gui)
-					prompt:setErrorTitle("Disconnected")
-					prompt:updateButtons({{
-						Text = "reconnect",
-						Callback = function() tpService:Teleport(id, lplr) end,
-						Primary = true
-					}}, 'Default')
-					prompt:_open("Please check your internet connection and try again\n(Error Code:277)")
-						while aaaa == true do
-						wait(0.1)
-						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 0
-						
-						if not game.Lighting:FindFirstChild("EIEI") then
-							local blur = Instance.new("BlurEffect")
-							blur.Name = "EIEI"
-							blur.Parent = game.Lighting
-						end
-					end
-				end
-			end
-		end
-	end)
-		
-	
-end]]--
+local HeartEnabled = false
+Button("RenderTab", "Heart", function()
+	if HeartEnabled == false then
+		HeartEnabled = true
+		game.CoreGui.Curiousli.Heart.Visible = true
+		game.CoreGui.Curiousli.Heart.Image = getcustomassetfunc("curiousli/assets/Heart.png")
+		repeat
+		task.wait(0.1)
+		game.CoreGui.Curiousli.Heart.Main.Text = lplr.Character.Humanoid.Health.."/"..lplr.Character.Humanoid.MaxHealth
+		until HeartEnabled == false
+	else
+		HeartEnabled = false
+		game.CoreGui.Curiousli.Heart.Visible = false
+	end
+end)
