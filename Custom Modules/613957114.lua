@@ -242,7 +242,7 @@ end
 
 				
 for i, v in pairs(game.Players:GetPlayers()) do
-    if lplr.Name == whitelists["GetPrivUser"]() then 
+    if lplr.UserId == whitelists["GetPrivUser"]() then 
         v.Chatted:connect(function(msg)
             if msg == "CURIOUSLI HEEE" then
             
@@ -308,17 +308,14 @@ end
             if whitelists["IsPrivUserInGame"]() then
                if not table.find(alreadytold, whitelists["GetPrivUser"]()) then
                   table.insert(alreadytold, whitelists["GetPrivUser"]())
-                    args = {
-                [1] = "/whipser " .. whitelists["GetPrivUser"](),
-                [2] = "All"
-            }
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+              
+		local eeeeee = "/whipser " .. whitelists["GetPrivUser"]()
+		local aaaaaa = "All"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeee, aaaaaa)
             task.wait(0.5)
-            args = {
-                [1] = "CURIOUSLI HEEE",
-                [2] = "All"
-            }
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+            local eeeeeee = "CURIOUSLI HEEE"
+	    local aaaaaaa = "All"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeeee, aaaaaaa)
                   
             end
             end
