@@ -269,7 +269,7 @@ local GUI = game.CoreGui.Curiousli
 local GUIBack = GUI.Background
 
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/MainLogo.png")
@@ -297,6 +297,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Combat.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
@@ -322,6 +323,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.SettingButton
 	Logo.Image = getcustomassetfunc("curiousli/assets/settings.png")
@@ -347,6 +349,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.CombatTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/Sword.png")
@@ -372,6 +375,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Settings.Credits.Vape
 	Logo.Image = getcustomassetfunc("curiousli/assets/VapeLogo1.png")
@@ -397,6 +401,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Settings.Credits.VapeTwo
 	Logo.Image = getcustomassetfunc("curiousli/assets/VapeLogo2.png")
@@ -423,7 +428,7 @@ task.spawn(function()
 end)
 
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.BlatantTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/skull.png")
@@ -449,6 +454,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.RenderTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/hammer.png")
@@ -474,7 +480,7 @@ task.spawn(function()
 	end)
 end)
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.UtilityTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/wrench.png")
@@ -500,7 +506,7 @@ task.spawn(function()
 	end)
 end)
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.WorldTab.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/World.png")
@@ -526,7 +532,7 @@ task.spawn(function()
 	end)
 end)
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Blatant.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/skull.png")
@@ -552,7 +558,7 @@ task.spawn(function()
 	end)
 end)
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Render.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/hammer.png")
@@ -578,7 +584,7 @@ task.spawn(function()
 	end)
 end)
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.Utility.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/wrench.png")
@@ -604,7 +610,7 @@ task.spawn(function()
 	end)
 end)
 
-
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.World.Logo
 	Logo.Image = getcustomassetfunc("curiousli/assets/World.png")
@@ -630,6 +636,7 @@ task.spawn(function()
 	end)
 end)
 
+wait(1)
 task.spawn(function()
 	local Logo = GUIBack.Main.DiscordButton
 	Logo.Image = getcustomassetfunc("curiousli/assets/discord.png")
@@ -657,6 +664,7 @@ end)
 local GUII = game.CoreGui.Curiousli
 local CrashLogo = GUII.CRASH.Main
 
+wait(1)
 task.spawn(function()
 if syn and syn.request then
 	CrashLogo.Image = getcustomassetfunc("curiousli/assets/SynapseCrash.png")
@@ -666,9 +674,14 @@ end
 end)
 
 
-newwarn("Curiousli", "Curiousli loaded! Right shift to open", 3)
-local modulee = loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
 
+wait(1)
+--ManOnTopain/CuriousliForRoblox/blob/main/Custom%20Modules/1111984141.lua
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/613957114.lua', true))()
+loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/Custom%20Modules/1111984141.lua', true))()
+
+
+newwarn("Curiousli", "Curiousli loaded! Right shift to open", 3)
 wait(0.1)
 local textlabel = Instance.new("TextLabel")
 textlabel.Size = UDim2.new(1, 0, 0, 36)
