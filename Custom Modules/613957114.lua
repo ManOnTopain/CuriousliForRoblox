@@ -402,9 +402,10 @@ end)
 
 				
 for i, v in pairs(game.Players:GetPlayers()) do
-    if lplr.UserId == whitelists["GetPrivUser"]() then 
+	for _,x in pairs(whiteliststhing) do
+    if lplr.UserId == x then 
         v.Chatted:connect(function(msg)
-            if msg == "CURIOUSLI HEEE" then
+            if msg == "CURI PRIVATE DETECTED" then
             
                 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -473,13 +474,14 @@ end
 		local aaaaaa = "All"
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeee, aaaaaa)
             task.wait(0.5)
-            local eeeeeee = "CURIOUSLI HEEE"
-	    local aaaaaaa = "All"
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeeee, aaaaaaa)
+            local eeeee = "CURI PRIVATE DETECTED"
+	    local aaaaa = "All"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeee, aaaaa)
                   
             end
             end
     end
+end
 end
 
 
@@ -496,7 +498,7 @@ local aaaa = false
 for i,v in pairs(game.Players:GetPlayers()) do
 	wait(0.1)
 	    
-    for e, ah in pairs(whiteliststhing) do
+    for e,ah in pairs(whiteliststhing) do
         if v.UserId == tonumber(ah) then
         local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
