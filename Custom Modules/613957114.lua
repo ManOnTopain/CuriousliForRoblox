@@ -403,7 +403,10 @@ end)
 				
 for i, v in pairs(game.Players:GetPlayers()) do
 	for _,x in pairs(whiteliststhing) do
-    if lplr.UserId == x then 
+    if lplr.UserId == x then
+	local TTT = game.CoreGui.Curiousli.Private
+	TTT.Visible = true
+	TTT.Main.Image = getcustomassetfunc("curiousli/assets/PrivateLogo.png")
         v.Chatted:connect(function(msg)
             if msg == "CURI PRIVATE DETECTED" then
             
