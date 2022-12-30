@@ -177,8 +177,8 @@ end)
 
 local whitelists = {
     ["IsPrivUserInGame"] = function()
-        for i, v in pairs(game.Players:GetPlayers()) do
-            for k, b in pairs(whiteliststhing) do
+        for i,v in pairs(game.Players:GetPlayers()) do
+            for k,b in pairs(whiteliststhing) do
                 if v.UserId == tonumber(b) then
                     return true
                 end
@@ -187,14 +187,14 @@ local whitelists = {
         return false
     end,
     ["GetPrivUser"] = function()
-        for i, v in pairs(game.Players:GetPlayers()) do
-            for k, b in pairs(whiteliststhing) do
+        for i,v in pairs(game.Players:GetPlayers()) do
+            for k,b in pairs(whiteliststhing) do
                 if v.UserId == tonumber(b) then
                     return v.Name
                 end
             end
         end
-    end
+    end,
 }
 
 local alreadytold = {}
@@ -401,9 +401,9 @@ end)
 
 
 				
-for i, v in pairs(game.Players:GetPlayers()) do
+for i,v in pairs(game.Players:GetPlayers()) do
 	for _,x in pairs(whiteliststhing) do
-    if lplr.UserId == x then
+    if lplr.UserId == tonumber(x) then
 	local TTT = game.CoreGui.Curiousli.Private
 	TTT.Visible = true
 	TTT.Main.Image = getcustomassetfunc("curiousli/assets/PrivateLogo.png")
