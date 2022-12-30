@@ -1,6 +1,7 @@
 
 
 if shared.CuriousliExecuted then
+	warn("Curiousli Already Injected")
 	error("Curiousli Already Injected")
 	return
 else
