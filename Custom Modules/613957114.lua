@@ -560,7 +560,7 @@ end
 					ppp = true
 					game.CoreGui.Curiousli.CRASH.Visible = true
 					while wait(0.1) do
-						if ppp = true then
+						if ppp == true then
 						lplr.Character.Humanoid.WalkSpeed = 0			
 						end
 					end
@@ -781,7 +781,3 @@ Button("WorldTab", "No Fall", function()
 		game.Workspace.Gravity = 192.6
 	end
 end)
-	
-	
-	
-	
