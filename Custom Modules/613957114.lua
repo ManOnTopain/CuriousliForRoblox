@@ -199,19 +199,15 @@ local whitelists = {
 
 local alreadytold = {}
 
-local KillauraEnabled = false
-Button("CombatTab", "Kill Aura", function()
 
-  local DistVal = 14
-  if KillauraEnabled == false then
-  KillauraEnabled = true
-	repeat
-	task.wait()
-	local DistVal = {["Value"] = 18}
+local DistVal = {["Value"] = 18}
+
 local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
 local attackentitycont = Client:Get(getremote(debug.getconstants(getmetatable(KnitClient.Controllers.SwordController)["attackEntity"])))  
 
 local itemstuff = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.item["item-meta"]).getItemMeta, 1)
+
+
 
 function getinv(plr)
     local plr = plr or lplr
@@ -240,86 +236,15 @@ function getsword()
     return sd, swordslots
 end
 
-				
-for i, v in pairs(game.Players:GetPlayers()) do
-    if lplr.UserId == whitelists["GetPrivUser"]() then 
-        v.Chatted:connect(function(msg)
-            if msg == "CURIOUSLI HEEE" then
-            
-                local Players = game:GetService("Players")
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local yes = v.Name
-local ChatTag = {}
-ChatTag[yes] =
-	{
-        TagText = "CURIOUSLI USER",
-        TagColor = Color3.new(255, 0, 0),
-    }
+local KillauraEnabled = false
+Button("CombatTab", "Kill Aura", function()
 
-
-
-    local oldchanneltab
-    local oldchannelfunc
-    local oldchanneltabs = {}
-
-for i, v in pairs(getconnections(ReplicatedStorage.DefaultChatSystemChatEvents.OnNewMessage.OnClientEvent)) do
-	if
-		v.Function
-		and #debug.getupvalues(v.Function) > 0
-		and type(debug.getupvalues(v.Function)[1]) == "table"
-		and getmetatable(debug.getupvalues(v.Function)[1])
-		and getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
-	then
-		oldchanneltab = getmetatable(debug.getupvalues(v.Function)[1])
-		oldchannelfunc = getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
-		getmetatable(debug.getupvalues(v.Function)[1]).GetChannel = function(Self, Name)
-			local tab = oldchannelfunc(Self, Name)
-			if tab and tab.AddMessageToChannel then
-				local addmessage = tab.AddMessageToChannel
-				if oldchanneltabs[tab] == nil then
-					oldchanneltabs[tab] = tab.AddMessageToChannel
-				end
-				tab.AddMessageToChannel = function(Self2, MessageData)
-					if MessageData.FromSpeaker and Players[MessageData.FromSpeaker] then
-						if ChatTag[Players[MessageData.FromSpeaker].Name] then
-							MessageData.ExtraData = {
-								NameColor = Players[MessageData.FromSpeaker].Team == nil and Color3.new(135,206,235)
-									or Players[MessageData.FromSpeaker].TeamColor.Color,
-								Tags = {
-									table.unpack(MessageData.ExtraData.Tags),
-									{
-										TagColor = ChatTag[Players[MessageData.FromSpeaker].Name].TagColor,
-										TagText = ChatTag[Players[MessageData.FromSpeaker].Name].TagText,
-									},
-								},
-							}
-						end
-					end
-					return addmessage(Self2, MessageData)
-				end
-			end
-			return tab
-		end
-	end
-end
-            end
-        end)
-        else
-            if whitelists["IsPrivUserInGame"]() then
-               if not table.find(alreadytold, whitelists["GetPrivUser"]()) then
-                  table.insert(alreadytold, whitelists["GetPrivUser"]())
-              
-		local eeeeee = "/whipser " .. whitelists["GetPrivUser"]()
-		local aaaaaa = "All"
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeee, aaaaaa)
-            task.wait(0.5)
-            local eeeeeee = "CURIOUSLI HEEE"
-	    local aaaaaaa = "All"
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeeee, aaaaaaa)
-                  
-            end
-            end
-            				
+  
+  if KillauraEnabled == false then
+  KillauraEnabled = true
+	repeat
+	task.wait()
+	    				
 				
 local rgfejd = false
  for i,v in pairs(game.Players:GetChildren()) do
@@ -354,8 +279,6 @@ local rgfejd = false
 						    end
 end
 end
-end
-end	
 end
 end
     until KillauraEnabled == false
@@ -466,6 +389,88 @@ Button("BlatantTab", "Cape", function()
 	end
 end)
 
+
+				
+for i, v in pairs(game.Players:GetPlayers()) do
+    if lplr.UserId == whitelists["GetPrivUser"]() then 
+        v.Chatted:connect(function(msg)
+            if msg == "CURIOUSLI HEEE" then
+            
+                local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local yes = v.Name
+local ChatTag = {}
+ChatTag[yes] =
+	{
+        TagText = "CURIOUSLI USER",
+        TagColor = Color3.new(255, 0, 0),
+    }
+
+
+
+    local oldchanneltab
+    local oldchannelfunc
+    local oldchanneltabs = {}
+
+for i, v in pairs(getconnections(ReplicatedStorage.DefaultChatSystemChatEvents.OnNewMessage.OnClientEvent)) do
+	if
+		v.Function
+		and #debug.getupvalues(v.Function) > 0
+		and type(debug.getupvalues(v.Function)[1]) == "table"
+		and getmetatable(debug.getupvalues(v.Function)[1])
+		and getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
+	then
+		oldchanneltab = getmetatable(debug.getupvalues(v.Function)[1])
+		oldchannelfunc = getmetatable(debug.getupvalues(v.Function)[1]).GetChannel
+		getmetatable(debug.getupvalues(v.Function)[1]).GetChannel = function(Self, Name)
+			local tab = oldchannelfunc(Self, Name)
+			if tab and tab.AddMessageToChannel then
+				local addmessage = tab.AddMessageToChannel
+				if oldchanneltabs[tab] == nil then
+					oldchanneltabs[tab] = tab.AddMessageToChannel
+				end
+				tab.AddMessageToChannel = function(Self2, MessageData)
+					if MessageData.FromSpeaker and Players[MessageData.FromSpeaker] then
+						if ChatTag[Players[MessageData.FromSpeaker].Name] then
+							MessageData.ExtraData = {
+								NameColor = Players[MessageData.FromSpeaker].Team == nil and Color3.new(135,206,235)
+									or Players[MessageData.FromSpeaker].TeamColor.Color,
+								Tags = {
+									table.unpack(MessageData.ExtraData.Tags),
+									{
+										TagColor = ChatTag[Players[MessageData.FromSpeaker].Name].TagColor,
+										TagText = ChatTag[Players[MessageData.FromSpeaker].Name].TagText,
+									},
+								},
+							}
+						end
+					end
+					return addmessage(Self2, MessageData)
+				end
+			end
+			return tab
+		end
+	end
+end
+            end
+        end)
+        else
+            if whitelists["IsPrivUserInGame"]() then
+               if not table.find(alreadytold, whitelists["GetPrivUser"]()) then
+                  table.insert(alreadytold, whitelists["GetPrivUser"]())
+              
+		local eeeeee = "/whipser " .. whitelists["GetPrivUser"]()
+		local aaaaaa = "All"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeee, aaaaaa)
+            task.wait(0.5)
+            local eeeeeee = "CURIOUSLI HEEE"
+	    local aaaaaaa = "All"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeeee, aaaaaaa)
+                  
+            end
+            end
+    end
+end
 
 
 
