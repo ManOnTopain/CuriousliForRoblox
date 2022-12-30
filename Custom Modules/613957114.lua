@@ -98,7 +98,6 @@ local repstorage = game:GetService("ReplicatedStorage")
 local lplr = players.LocalPlayer
 local lighting = game:GetService("Lighting")
 local cam = workspace.CurrentCamera
-local targetinfo = shared.VapeTargetInfo
 local collectionservice = game:GetService("CollectionService")
 local uis = game:GetService("UserInputService")
 local mouse = lplr:GetMouse()
