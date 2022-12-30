@@ -201,11 +201,18 @@ local alreadytold = {}
 
 
 local DistVal = {["Value"] = 18}
+local InventoryUtil
+local attackentitycont
+local itemstuff
 
-local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
+if game:GetService("ReplicatedStorage"):FindFirstChild("TS") then
+	local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
 local attackentitycont = Client:Get(getremote(debug.getconstants(getmetatable(KnitClient.Controllers.SwordController)["attackEntity"])))  
 
 local itemstuff = debug.getupvalue(require(game:GetService("ReplicatedStorage").TS.item["item-meta"]).getItemMeta, 1)
+end
+
+
 
 
 
@@ -236,6 +243,7 @@ function getsword()
     return sd, swordslots
 end
 
+print("Kill aura time")
 local KillauraEnabled = false
 Button("CombatTab", "Kill Aura", function()
 
@@ -315,6 +323,8 @@ Button("BlatantTab", "Fly", function()
 end)
 
 Value("BlatantTab", "Fly", "FlyValue")
+
+print("Kill aura and fly passed")
 
 local function Cape(char, texture)
 		for i,v in pairs(char:GetDescendants()) do
