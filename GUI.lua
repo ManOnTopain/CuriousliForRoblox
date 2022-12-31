@@ -10,6 +10,7 @@ else
 	
 	
 
+
 local curiousli = Instance.new("ScreenGui")
 curiousli.IgnoreGuiInset = false
 curiousli.ResetOnSpawn = true
@@ -18,7 +19,7 @@ curiousli.Name = "Curiousli"
 curiousli.Parent = game.CoreGui
 
 local background = Instance.new("Frame")
-background.BackgroundColor3 = Color3.new(0.262745, 0.262745, 0.262745)
+background.BackgroundColor3 = Color3.new(0.505882, 0.192157, 0.517647)
 background.BackgroundTransparency = 0.5
 background.Size = UDim2.new(1, 0, 1, 0)
 background.Visible = false
@@ -26,7 +27,7 @@ background.Name = "Background"
 background.Parent = curiousli
 
 local main = Instance.new("Frame")
-main.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+main.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 main.Position = UDim2.new(0.00846660417, 0, 0.0401606411, 0)
 main.Size = UDim2.new(0.145813748, 0, 0.901606441, 0)
 main.Visible = true
@@ -41,7 +42,6 @@ logo.Size = UDim2.new(1, 0, 0.0910983458, 0)
 logo.Visible = true
 logo.Name = "Logo"
 logo.Parent = main
-
 
 local drag = Instance.new("LocalScript")
 drag.Name = "Drag"
@@ -60,7 +60,7 @@ local local_script = Instance.new("LocalScript")
 local_script.Parent = setting_button
 
 local settings = Instance.new("Frame")
-settings.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+settings.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 settings.Position = UDim2.new(0, 0, -0.00233499566, 0)
 settings.Size = UDim2.new(0.999999881, 0, 1.00233495, 0)
 settings.Visible = false
@@ -346,7 +346,7 @@ local local_script_12 = Instance.new("LocalScript")
 local_script_12.Parent = discord_button
 
 local combat_tab = Instance.new("Frame")
-combat_tab.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+combat_tab.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 combat_tab.Position = UDim2.new(0.179253861, 0, 0.0399999991, 0)
 combat_tab.Size = UDim2.new(0.145999998, 0, 0.90200001, 0)
 combat_tab.Visible = false
@@ -399,7 +399,7 @@ uilist_layout.SortOrder = Enum.SortOrder.LayoutOrder
 uilist_layout.Parent = main_2
 
 local blatant_tab = Instance.new("Frame")
-blatant_tab.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+blatant_tab.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 blatant_tab.Position = UDim2.new(0.179000005, 0, 0.0399999991, 0)
 blatant_tab.Size = UDim2.new(0.145999998, 0, 0.90200001, 0)
 blatant_tab.Visible = false
@@ -452,7 +452,7 @@ uilist_layout_2.SortOrder = Enum.SortOrder.LayoutOrder
 uilist_layout_2.Parent = main_3
 
 local render_tab = Instance.new("Frame")
-render_tab.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+render_tab.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 render_tab.Position = UDim2.new(0.179000005, 0, 0.0399999991, 0)
 render_tab.Size = UDim2.new(0.145999998, 0, 0.90200001, 0)
 render_tab.Visible = false
@@ -505,7 +505,7 @@ uilist_layout_3.SortOrder = Enum.SortOrder.LayoutOrder
 uilist_layout_3.Parent = main_4
 
 local utility_tab = Instance.new("Frame")
-utility_tab.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+utility_tab.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 utility_tab.Position = UDim2.new(0.179000005, 0, 0.0399999991, 0)
 utility_tab.Size = UDim2.new(0.145999998, 0, 0.90200001, 0)
 utility_tab.Visible = false
@@ -558,7 +558,7 @@ uilist_layout_4.SortOrder = Enum.SortOrder.LayoutOrder
 uilist_layout_4.Parent = main_5
 
 local world_tab = Instance.new("Frame")
-world_tab.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+world_tab.BackgroundColor3 = Color3.new(0.988235, 0.0117647, 0.972549)
 world_tab.Position = UDim2.new(0.179000005, 0, 0.0399999991, 0)
 world_tab.Size = UDim2.new(0.145999998, 0, 0.90200001, 0)
 world_tab.Visible = false
@@ -733,6 +733,32 @@ main_9.Size = UDim2.new(1, 0, 1.28205132, 0)
 main_9.Visible = true
 main_9.Name = "Main"
 main_9.Parent = private
+
+local happy = Instance.new("Frame")
+happy.BackgroundColor3 = Color3.new(1, 0.172549, 0.956863)
+happy.Position = UDim2.new(-0.0850000009, 0, -2.3599999, 0)
+happy.Size = UDim2.new(1.23483145, 0, 11.2600002, 0)
+happy.Visible = false
+happy.Name = "HAPPY"
+happy.Parent = curiousli
+
+local text_label_2 = Instance.new("TextLabel")
+text_label_2.Font = Enum.Font.SourceSans
+text_label_2.Text = "HAPPY NEW YEAR!"
+text_label_2.TextColor3 = Color3.new(0.921569, 1, 0.2)
+text_label_2.TextScaled = true
+text_label_2.TextSize = 14
+text_label_2.TextWrapped = true
+text_label_2.BackgroundColor3 = Color3.new(1, 1, 1)
+text_label_2.BackgroundTransparency = 1
+text_label_2.Position = UDim2.new(0.0684169233, 0, 0.219089463, 0)
+text_label_2.Size = UDim2.new(0.809827089, 0, 0.0420678705, 0)
+text_label_2.Visible = true
+text_label_2.ZIndex = 4
+text_label_2.Parent = happy
+
+local local_script_14 = Instance.new("LocalScript")
+local_script_14.Parent = text_label_2
 
 --//Modules
 
@@ -1715,6 +1741,33 @@ task.spawn(function()
 	script.Parent.MouseButton1Click:Connect(function()
 		setfpscap(9e9)
 	end)
+end)
+
+-- LocalScript
+task.spawn(function()
+	local script = local_script_14
+
+	local oldreq = require
+	local function require(target)
+		if modules[target] then
+			return modules[target]()
+		end
+		return oldreq(target)
+	end
+
+	local p = script.Parent
+	
+	while wait(0.1) do
+		p.TextColor3 = Color3.new(0.32549, 0.415686, 1)
+		wait(0.5)
+		p.TextColor3 = Color3.new(0.45098, 1, 0.470588)
+		wait(0.5)
+		p.TextColor3 = Color3.new(1, 0.117647, 0.133333)
+		wait(0.5)
+		p.TextColor3 = Color3.new(1, 0.866667, 0.113725)
+		wait(0.5)
+		p.TextColor3 = Color3.new(1, 0.321569, 1)
+	end
 end)
 
 	--end--
