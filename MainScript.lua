@@ -696,6 +696,12 @@ textlabel.Position = UDim2.new(0, 0, 0, -36)
 textlabel.Parent = game.CoreGui.Curiousli
 textlabel.Name = "Progress"
 
+game.CoreGui.Curiousli.Background.Main.DiscordButton.MouseButton1Click:Connect(function()
+textlabel.Text = "The discord invite has been copied to your keyboard!"
+wait(3)
+textlabel.Text = "The script is still in progress so don't expect it to be good yet!"
+end)
+
 if betterisfile("curiousli/Custom Modules/module.lua") then
 loadstring(readfile("curiousli/Custom Modules/module.lua"))()
 end
