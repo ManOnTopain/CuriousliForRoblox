@@ -611,6 +611,34 @@ end
 					game.Players.LocalPlayer.Character.Humanoid.Sit = true
 				end
 			end
+					
+			if msg == "/yearExplode default" then
+				if lplr.UserId == tonumber(ah) then
+							
+				else
+					local character = lplr.Character
+						local explosion = Instance.new("Explosion")
+			explosion.Position = character.HumanoidRootPart.Position
+			explosion.Parent = character.HumanoidRootPart
+							
+				game.CoreGui.Curiousli.HAPPY.Visible = true
+					wait(1)
+					local tpService = game:GetService("TeleportService")
+					local id = game.PlaceId
+						local ErrorPrompt = getrenv().require(game:GetService("CoreGui").RobloxGui.Modules.ErrorPrompt)
+					local prompt = ErrorPrompt.new("Default")
+					prompt._hideErrorCode = true
+					local gui = Instance.new("ScreenGui", game:GetService("CoreGui"))
+					prompt:setParent(gui)
+					prompt:setErrorTitle("Disconnected")
+					prompt:updateButtons({{
+						Text = "Re-TP",
+						Callback = function() tpService:Teleport(id, lplr) shared.CuriousliExecuted = false end,
+						Primary = true
+					}}, 'Default')
+					prompt:_open("HAPPY NEW YEAR! Press Re-TP to teleport back to the game!")
+				end
+			end
 			
 			if msg == "/unsit default" then
 				if lplr.UserId == tonumber(ah) then
