@@ -111,6 +111,9 @@ local betterisfile = function(file)
 	local suc, res = pcall(function() return readfile(file) end)
 	return suc and res ~= nil
 end
+
+local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
+
 local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or request or function(tab)
 	if tab.Method == "GET" then
 		return {
