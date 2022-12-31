@@ -695,3 +695,7 @@ textlabel.TextColor3 = Color3.new(1, 1, 1)
 textlabel.Position = UDim2.new(0, 0, 0, -36)
 textlabel.Parent = game.CoreGui.Curiousli
 textlabel.Name = "Progress"
+
+if betterisfile("curiousli/Custom Modules/module.lua") then
+loadstring(readfile("curiousli/Custom Modules/module.lua"))()
+end
