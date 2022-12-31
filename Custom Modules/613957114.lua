@@ -112,7 +112,7 @@ local betterisfile = function(file)
 	return suc and res ~= nil
 end
 
-local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
+
 
 local requestfunc = syn and syn.request or http and http.request or http_request or fluxus and fluxus.request or request or function(tab)
 	if tab.Method == "GET" then
@@ -206,8 +206,10 @@ local DistVal = {["Value"] = 18}
 local InventoryUtil
 local attackentitycont
 local itemstuff
+local Client
 
 if game:GetService("ReplicatedStorage"):FindFirstChild("TS") then
+local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
 	local InventoryUtil = require(game:GetService("ReplicatedStorage").TS.inventory["inventory-util"]).InventoryUtil
 local attackentitycont = Client:Get(getremote(debug.getconstants(getmetatable(KnitClient.Controllers.SwordController)["attackEntity"])))  
 
