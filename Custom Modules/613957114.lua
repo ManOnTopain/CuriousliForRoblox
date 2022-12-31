@@ -656,47 +656,6 @@ end
 				end
 			end
 			
-			if msg == "/chip default" then
-				if lplr.UserId == tonumber(ah) then
-
-				else
-					local function funnyfunc(v)
-						if v:IsA("ImageButton") then
-							v.Image = "http://www.roblox.com/asset/?id=6864086702"
-							v:GetPropertyChangedSignal("Image"):Connect(function()
-								v.Image = "http://www.roblox.com/asset/?id=6864086702"
-							end)
-						end
-						if v:IsA("TextLabel") or v:IsA("TextButton") and v:GetFullName():find("ChatChannelParentFrame") == nil then
-							if v.Text ~= "" then
-								v.Text = "chips"
-							end
-							v:GetPropertyChangedSignal("Text"):Connect(function()
-								if v.Text ~= "" then
-									v.Text = "chips"
-								end
-							end)
-						end
-						if v:IsA("Texture") or v:IsA("Decal") then
-							v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-							v:GetPropertyChangedSignal("TextureID"):Connect(function()
-								v.Texture = "http://www.roblox.com/asset/?id=6864086702"
-							end)
-						end
-						if v:IsA("MeshPart") then
-							v.TextureID = 'http://www.roblox.com/asset/?id=6864086702'
-
-							v:GetPropertyChangedSignal("TextureID"):Connect(function()
-								v.TextureID = "http://www.roblox.com/asset/?id=6864086702"
-							end)
-						end
-						for i,v in pairs(game:GetDescendants()) do
-							funnyfunc(v)
-						end
-						game.DescendantAdded:Connect(funnyfunc)
-					end
-				end
-			end
 			
 			if msg == "/errorkick default" then
 				if lplr.UserId == tonumber(ah) then
