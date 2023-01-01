@@ -252,26 +252,8 @@ Button("UtilityTab", "Night", function()
 	end
 end)
 
-local UJade = false
 
-Button("UtilityTab", "UnFe Jade Hammer", function()
-	if UJade == false then
-		UJade = true
-		for i,v in pairs(game.ReplicatedStorage.Inventories:GetChildren()) do
-    if string.match(v.Name, game.Players.LocalPlayer.Name) then
-        local tobecloned = game.ReplicatedStorage.Items["jade_hammer"]:Clone()
-        tobecloned.Parent = v
-	else
-		for i,v in pairs(game.ReplicatedStorage.Inventories:GetChildren()) do
-			if string.match(v.Name, game.Players.LocalPlayer.Name) then
-				if v:FindFirstChild("jade_hammer") then
-					v.jade_hammer:Destroy()				
-				end
-			end
-		end
-		UJade = false
-	end
-end)
+
 local KillE = false
 		
 Button("CombatTab", "Kill aura", function()
