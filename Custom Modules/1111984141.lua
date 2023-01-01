@@ -212,3 +212,35 @@ Button("BlatantTab", "Auto Speed", function()
       speedE = false
   end
 end)
+
+local NightE = false
+Button("UtilityTab", "Night", function()
+	if NightE == false then
+		NightE = true
+		game.Lighting.TimeOfDay = "00:00:00"
+	else
+		NightE = false
+		game.Lighting.TimeOfDay = "13:00:00"
+	end
+end)
+
+local UJade = false
+
+Button("UtilityTab", "UnFe Jade Hammer", function()
+	if UJade == false then
+		UJade = true
+		for i,v in pairs(game.ReplicatedStorage.Inventories:GetChildren()) do
+    if string.match(v.Name, game.Players.LocalPlayer.Name) then
+        local tobecloned = game.ReplicatedStorage.Items["jade_hammer"]:Clone()
+        tobecloned.Parent = v
+	else
+		for i,v in pairs(game.ReplicatedStorage.Inventories:GetChildren()) do
+			if string.match(v.Name, game.Players.LocalPlayer.Name) then
+				if v:FindFirstChild("jade_hammer") then
+					v.jade_hammer:Destroy()				
+				end
+			end
+		end
+		UJade = false
+	end
+end)
