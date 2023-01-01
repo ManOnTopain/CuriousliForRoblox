@@ -200,6 +200,34 @@ local whitelists = {
     end,
 }
 
+local KnitClient
+local SwordCont
+
+if game.ReplicatedStorage:FindFirstChild("TS") then
+local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+local SwordCont = KnitClient.Controllers.SwordController
+end
+
+local DistVal = {["Value"] = 14}
+function Aura()
+    for i,v in pairs(game.Players:GetChildren()) do
+        if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
+            local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+            if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
+                if v.Character.Humanoid.Health > 0 then
+			for i,x in pairs(whiteliststhing) do
+				if not v.UserId == tonumber(x) then
+					SwordCont:swingSwordAtMouse()
+				end	
+                   	 
+                    	
+			end
+end
+end
+end
+end
+end
+
 local alreadytold = {}
 
 local speedE = false
@@ -242,5 +270,18 @@ Button("UtilityTab", "UnFe Jade Hammer", function()
 			end
 		end
 		UJade = false
+	end
+end)
+local KillE = false
+		
+Button("CombatTab", "Kill aura", function()
+	if KillE == false then
+		KillE = true
+		repeat 
+			wait(0.1)
+			Aura()		
+		until KillE == false
+	else
+		KillE = false
 	end
 end)
