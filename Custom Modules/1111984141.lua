@@ -97,6 +97,7 @@ end
 
 
 local players = game:GetService("Players")
+local workspace = game.Workspace
 local textservice = game:GetService("TextService")
 local repstorage = game:GetService("ReplicatedStorage")
 local lplr = players.LocalPlayer
@@ -200,33 +201,8 @@ local whitelists = {
     end,
 }
 
-local KnitClient
-local SwordCont
 
-if game.ReplicatedStorage:FindFirstChild("TS") then
-local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
-local SwordCont = KnitClient.Controllers.SwordController
-end
 
-local DistVal = {["Value"] = 14}
-function Aura()
-    for i,v in pairs(game.Players:GetChildren()) do
-        if v.Character and v.Name ~= game.Players.LocalPlayer.Name and v.Character:FindFirstChild("HumanoidRootPart") then
-            local mag = (v.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
-            if mag <= DistVal["Value"] and v.Team ~= game.Players.LocalPlayer.Team and v.Character:FindFirstChild("Humanoid") then
-                if v.Character.Humanoid.Health > 0 then
-			for i,x in pairs(whiteliststhing) do
-				if not v.UserId == tonumber(x) then
-					SwordCont:swingSwordAtMouse()
-				end	
-                   	 
-                    	
-			end
-end
-end
-end
-end
-end
 
 local alreadytold = {}
 
@@ -240,6 +216,32 @@ Button("BlatantTab", "Auto Speed", function()
       speedE = false
   end
 end)
+
+local v5 = players;
+local v6 = lplr;
+local v7 = workspace.CurrentCamera;
+local v8
+local v9
+local v10 = false;
+if game.ReplicatedStorage:FindFirstChild("TS") then
+v8 = debug.getupvalue(require(v6.PlayerScripts.TS.knit).setup, 6);
+v9 = v8.Controllers.SwordController;
+end
+
+local v11 = {Value=14};
+function Aura()
+	for v12, v13 in pairs(game.Players:GetChildren()) do
+		if (v13.Character and (v13.Name ~= game.Players.LocalPlayer.Name) and v13.Character:FindFirstChild("HumanoidRootPart")) then
+			local v14 = (v13.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude;
+			if ((v14 <= ({Value=14})['Value']) and (v13.Team ~= game.Players.LocalPlayer.Team) and v13.Character:FindFirstChild("Humanoid")) then
+				if (v13.Character.Humanoid.Health > 0) then
+					true = true;
+					v9:swingSwordAtMouse();
+				end
+			end
+		end
+	end
+end
 
 local NightE = false
 Button("UtilityTab", "Night", function()
