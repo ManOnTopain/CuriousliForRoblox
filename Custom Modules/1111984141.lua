@@ -305,11 +305,11 @@ if game.ReplicatedStorage:FindFirstChild("TS") then
 Button("RenderTab", "No Fall", function()
 	local thing = game.CoreGui.Curiousli.Background.RenderTab.Main
 	wait(0.2)
-	if thing['No Fall'].Text == "No Fall (Enabled)" or "No Fall ( Enabled )" or "No Fall (enabled)" then
+	if thing['No Fall'].Text == "No Fall (Enabled)" then
 		repeat
 		wait(0.1)
 		Client:Get("GroundHit"):SendToServer()	
-		until thing['No Fall'].Text == "No Fall (Disabled)" or "No Fall ( Disabled )"
+		until thing['No Fall'].Text == "No Fall (Disabled)"
 		
 	end
 end)
@@ -369,7 +369,7 @@ end)
 	Button("BlatantTab", "Auto Bank", function()
 		local thing = game.CoreGui.Curiousli.Background.BlatantTab.Main
 		wait(0.2)
-		if thing['Auto Bank'].Text == "Auto Bank (Enabled)" or "Auto Bank ( Enabled )" then
+		if thing['Auto Bank'].Text == "Auto Bank (Enabled)" then
 			repeat 
 			wait(0.1)
 			if isalive(lplr) then
@@ -379,7 +379,9 @@ end)
                                         takeitems()
                                     end
                                 end
-			until thing['Auto Bank'].Text == "Auto Bank (Disabled)" or "Auto Bank ( Disabled )"
+			until thing['Auto Bank'].Text == "Auto Bank (Disabled)"
+		else
+			getitems()
 		end
 	end)
 	local GUI = game.CoreGui.Curiousli
@@ -387,13 +389,13 @@ end)
 	Button("BlatantTab", "Auto Sprint", function()
 		local thing = Background.BlatantTab.Main['Auto Sprint']
 		wait(0.2)
-		if thing.Text == "Auto Sprint (Enabled)" or "Auto Sprint ( Enabled )" then
+		if thing.Text == "Auto Sprint (Enabled)" then
 			repeat
 			task.wait()
 			if not bedwars["SprintController"].sprinting then
                                     bedwars["SprintController"]:startSprinting()
                                 end
-			until thing.Text == "Auto Sprint (Disabled)" or "Auto Sprint ( Disabled )"
+			until thing.Text == "Auto Sprint (Disabled)"
 		else
 			bedwars["SprintController"]:stopSprinting()
 		end
@@ -402,12 +404,12 @@ end)
 	Button("CombatTab", "Velocity", function()
 		local thing = Background.CombatTab.Main.Velocity
 		wait(0.2)	
-		if thing.Text == "Velocity (Enabled)" or "Velocity ( Enabled )" then
+		if thing.Text == "Velocity (Enabled)" then
 			repeat
 			wait(0.1)
 			old = bedwars["KnockbackUtil"].applyKnockback
                         bedwars["KnockbackUtil"].applyKnockback = function() end	
-			until thing.Text == "Velocity (Disabled)" or "Velocity ( Disabled )"
+			until thing.Text == "Velocity (Disabled)"
 		else
 			bedwars["KnockbackUtil"].applyKnockback = old
                         old = nil
@@ -417,7 +419,7 @@ end)
 	Button("CombatTab", "Anti Staff", function()
 		local thing = Background.CombatTab.Main['Anti Staff']
 		wait(0.2)	
-		if thing.Text == "Anti Staff (Enabled)" or "Anti Staff ( Enabled )" then
+		if thing.Text == "Anti Staff (Enabled)" then
 			repeat
 			wait(0.1)
 			 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
@@ -434,7 +436,7 @@ end)
                                 Client:Get("TeleportToLobby"):SendToServer()
                             end
                         end)
-			until thing.Text == "Anti Staff (Disabled)" or "Anti Staff ( Disabled )"
+			until thing.Text == "Anti Staff (Disabled)"
 		else
 			connection:Disconnect()
 		end
@@ -493,9 +495,9 @@ end)
 	Button("BlatantTab", "Kill Aura", function()
 		local thing = Background.BlatantTab.Main['Kill Aura']
 			
-		if thing.Text == "Kill Aura (Enabled)" or "Kill Aura ( Enabled )" then
+		if thing.Text == "Kill Aura (Enabled)" then
 			repeat
-				task.wait(0.12)
+				task.wait()
 				local nearest = getnearestplayer(Distance["Value"])
 				 if nearest ~= nil and nearest.Team ~= lplr.Team and isalive(nearest) and nearest.Character:FindFirstChild("Humanoid").Health > 0.1 and isalive(lplr) and lplr.Character:FindFirstChild("Humanoid").Health > 0.1 and not nearest.Character:FindFirstChild("ForceField") then
                                     local sword = getSword()
@@ -520,7 +522,7 @@ end)
 				end
 					
 				
-			until thing.Text == "Kill Aura (Disabled)" or "Kill Aura ( Disabled )"
+			until thing.Text == "Kill Aura (Disabled)"
 		end
 	end)
 
