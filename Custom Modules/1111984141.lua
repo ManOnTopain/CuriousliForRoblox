@@ -202,6 +202,233 @@ local whitelists = {
 }
 
 
+if game.ReplicatedStorage:FindFirstChild("TS") then
+ 	local uis = game:GetService("UserInputService")
+        local KnitClient = debug.getupvalue(require(lplr.PlayerScripts.TS.knit).setup, 6)
+        local Client = require(game:GetService("ReplicatedStorage").TS.remotes).default.Client
+	  local getremote = function(tab)
+            for i,v in pairs(tab) do
+                if v == "Client" then
+                    return tab[i + 1]
+                end
+            end
+            return ""
+        end
+	
+	local bedwars = {
+            ["SprintController"] = KnitClient.Controllers.SprintController,
+            ["ClientHandlerStore"] = require(lplr.PlayerScripts.TS.ui.store).ClientStore,
+            ["KnockbackUtil"] = require(game:GetService("ReplicatedStorage").TS.damage["knockback-util"]).KnockbackUtil,
+            ["PingController"] = require(lplr.PlayerScripts.TS.controllers.game.ping["ping-controller"]).PingController,
+            ["DamageIndicator"] = KnitClient.Controllers.DamageIndicatorController.spawnDamageIndicator,
+            ["SwordController"] = KnitClient.Controllers.SwordController,
+            ["ViewmodelController"] = KnitClient.Controllers.ViewmodelController,
+            ["SwordRemote"] = getremote(debug.getconstants((KnitClient.Controllers.SwordController).attackEntity)),
+        }
+	
+	 function isalive(plr)
+            plr = plr or lplr
+            if not plr.Character then return false end
+            if not plr.Character:FindFirstChild("Head") then return false end
+            if not plr.Character:FindFirstChild("Humanoid") then return false end
+            return true
+        end
+        function canwalk(plr)
+            plr = plr or lplr
+            if not plr.Character then return false end
+            if not plr.Character:FindFirstChild("Humanoid") then return false end
+            local state = plr.Character:FindFirstChild("Humanoid"):GetState()
+            if state == Enum.HumanoidStateType.Dead then
+                return false
+            end
+            if state == Enum.HumanoidStateType.Ragdoll then
+                return false
+            end
+            return true
+        end
+        function getbeds()
+            local beds = {}
+            for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                if string.lower(v.Name) == "bed" and v:FindFirstChild("Covers") ~= nil and v:FindFirstChild("Covers").Color ~= lplr.Team.TeamColor then
+                    table.insert(beds,v)
+                end
+            end
+            return beds
+        end
+        function getplayers()
+            local players = {}
+            for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+                if v.Team ~= lplr.Team and isalive(v) and v.Character:FindFirstChild("Humanoid").Health > 0.11 then
+                    table.insert(players,v)
+                end
+            end
+            return players
+        end
+        function getserverpos(Position)
+            local x = math.round(Position.X/3)
+            local y = math.round(Position.Y/3)
+            local z = math.round(Position.Z/3)
+            return Vector3.new(x,y,z)
+        end
+        function getnearestplayer(maxdist)
+            local obj = lplr
+            local dist = math.huge
+            for i,v in pairs(game:GetService("Players"):GetChildren()) do
+                if v.Team ~= lplr.Team and v ~= lplr and isalive(v) and isalive(lplr) then
+                    local mag = (v.Character:FindFirstChild("HumanoidRootPart").Position - lplr.Character:FindFirstChild("HumanoidRootPart").Position).Magnitude
+                    if (mag < dist) and (mag < maxdist) then
+                        dist = mag
+                        obj = v
+                    end
+                end
+            end
+            return obj
+        end
+        function getmatchstate()
+            return bedwars["ClientHandlerStore"]:getState().Game.matchState
+        end
+        function getqueuetype()
+            local state = bedwars["ClientHandlerStore"]:getState()
+            return state.Game.queueType or "bedwars_test"
+        end
+        function getitem(itm)
+            if isalive(lplr) and lplr.Character:FindFirstChild("InventoryFolder").Value:FindFirstChild(itm) then
+                return true
+            end
+            return false
+        end
+	
+	  
+	
+local KillE = false
+		
+Button("CombatTab", "Kill aura", function()
+	if KillE == false then
+		KillE = true
+		repeat 
+			wait(0.1)
+			
+		until KillE == false
+	else
+		KillE = false
+	end
+end)
+
+Button("RenderTab", "No Fall", function()
+	local thing = game.CoreGui.Curiousli.Background.RenderTab.Main
+	wait(0.2)
+	if thing['No Fall'].Text == "No Fall (Enabled)" or "No Fall ( Enabled )" or "No Fall (enabled)" then
+		repeat
+		wait(0.1)
+		Client:Get("GroundHit"):SendToServer()	
+		until thing['No Fall'].Text == "No Fall (Disabled)" or "No Fall ( Disabled )"
+		
+	end
+end)
+	
+	 local items = {"iron", "emerald", "diamond"}
+            local getshops = function()
+                local shops = {}
+                for i,v in pairs(game:GetService("Workspace"):GetChildren()) do
+                    if v.Name:find("item_shop") or v.Name:find("upgrade_shop") then
+                        table.insert(shops, v)
+                    end
+                end
+                return shops
+            end
+            local isnearshop = function()
+                local shops = getshops()
+                for i,v in pairs(shops) do
+                    local mag = (lplr.Character.HumanoidRootPart.Position - v.Position).Magnitude
+                    if mag < 20 then
+                        return true
+                    end
+                end
+                return false
+            end
+	
+	
+		local getinv = function()
+                return lplr.Character.InventoryFolder.Value
+            end
+            local getpersonal = function()
+                return game:GetService("ReplicatedStorage").Inventories:FindFirstChild(lplr.Name.."_personal")
+            end
+            local getitems = function()
+                local personal = getpersonal()
+                local inv = getinv()
+                for i, item in pairs(items) do
+                    if personal:FindFirstChild(item) then
+                        Client:GetNamespace("Inventory"):Get("SetObservedChest"):SendToServer(personal)
+                        Client:GetNamespace("Inventory"):Get("ChestGetItem"):CallServer(personal, personal[item])
+                        Client:GetNamespace("Inventory"):Get("SetObservedChest"):SendToServer(nil)
+                    end
+                end
+            end
+            local takeitems = function()
+                local personal = getpersonal()
+                local inv = getinv()
+                for i, item in pairs(items) do
+                    if inv:FindFirstChild(item) then
+                        Client:GetNamespace("Inventory"):Get("SetObservedChest"):SendToServer(personal)
+                        Client:GetNamespace("Inventory"):Get("ChestGiveItem"):CallServer(personal, inv[item])
+                        Client:GetNamespace("Inventory"):Get("SetObservedChest"):SendToServer(nil)
+                    end
+                end
+            end
+	
+	local ABE = false
+	Button("BlatantTab", "Auto Bank", function()
+		local thing = game.CoreGui.Curiousli.Background.BlatantTab.Main
+		wait(0.2)
+		if thing['Auto Bank'].Text == "Auto Bank (Enabled)" or "Auto Bank ( Enabled )" then
+			repeat 
+			wait(0.1)
+			if isalive(lplr) then
+                                    if isnearshop() then
+                                        getitems()
+                                    else
+                                        takeitems()
+                                    end
+                                end
+			until thing['Auto Bank'].Text == "Auto Bank (Disabled)" or "Auto Bank ( Disabled )"
+		end
+	end)
+	local GUI = game.CoreGui.Curiousli
+	local Background = GUI.Background
+	Button("BlatantTab", "Auto Sprint", function()
+		local thing = Background.BlatantTab.Main['Auto Sprint']
+		wait(0.2)
+		if thing.Text == "Auto Sprint (Enabled)" or "Auto Sprint ( Enabled )" then
+			repeat
+			task.wait()
+			if not bedwars["SprintController"].sprinting then
+                                    bedwars["SprintController"]:startSprinting()
+                                end
+			until thing.Text == "Auto Sprint (Disabled)" or "Auto Sprint ( Disabled )"
+		else
+			bedwars["SprintController"]:stopSprinting()
+		end
+	end)
+	
+	Button("CombatTab", "Velocity", function()
+		local thing = Background.BlatantTab.Main.Velocity
+		wait(0.2)	
+		if thing.Text == "Velocity (Enabled)" or "Velocity ( Enabled )" then
+			repeat
+			wait(0.1)
+			old = bedwars["KnockbackUtil"].applyKnockback
+                        bedwars["KnockbackUtil"].applyKnockback = function() end	
+			until thing.Text == "Velocity (Disabled)" or "Velocity ( Disabled )"
+		else
+			bedwars["KnockbackUtil"].applyKnockback = old
+                        old = nil
+		end
+	end)
+end
+
+
+
 
 
 local alreadytold = {}
@@ -217,31 +444,7 @@ Button("BlatantTab", "Auto Speed", function()
   end
 end)
 
-local v5 = players;
-local v6 = lplr;
-local v7 = workspace.CurrentCamera;
-local v8
-local v9
-local v10 = false;
-if game.ReplicatedStorage:FindFirstChild("TS") then
-v8 = debug.getupvalue(require(v6.PlayerScripts.TS.knit).setup, 6);
-v9 = v8.Controllers.SwordController;
-end
 
-local v11 = {Value=14};
-function Aura()
-	for v12, v13 in pairs(game.Players:GetChildren()) do
-		if (v13.Character and (v13.Name ~= game.Players.LocalPlayer.Name) and v13.Character:FindFirstChild("HumanoidRootPart")) then
-			local v14 = (v13.Character.HumanoidRootPart.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude;
-			if ((v14 <= ({Value=14})['Value']) and (v13.Team ~= game.Players.LocalPlayer.Team) and v13.Character:FindFirstChild("Humanoid")) then
-				if (v13.Character.Humanoid.Health > 0) then
-					true = true;
-					v9:swingSwordAtMouse();
-				end
-			end
-		end
-	end
-end
 
 local NightE = false
 Button("UtilityTab", "Night", function()
@@ -256,16 +459,3 @@ end)
 
 
 
-local KillE = false
-		
-Button("CombatTab", "Kill aura", function()
-	if KillE == false then
-		KillE = true
-		repeat 
-			wait(0.1)
-			Aura()		
-		until KillE == false
-	else
-		KillE = false
-	end
-end)
