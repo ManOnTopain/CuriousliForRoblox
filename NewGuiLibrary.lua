@@ -203,7 +203,7 @@ warn:Destroy()
 	template_value.ClearTextOnFocus = false
 	end,
 	['UpdateValue'] = function(Tab, Name, NewName)
-		game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main[Name].Text = NewName
+		game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main[Name].PlaceholderText = NewName
 	end
 }
 
