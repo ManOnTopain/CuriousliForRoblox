@@ -100,7 +100,7 @@ repeat task.wait() until shared.CGuiLibrary
 local GuiL = shared.CGuiLibary
 
 if shared.VapeExecuted then
-	warn("Ur using vape, might break the script")
+	GuiL.Warn("Ur using vape, might break the script")
 end
 
 local players = game:GetService("Players")
@@ -427,20 +427,39 @@ end)
 		local thing = Background.CombatTab.Main['Anti Staff']
 		wait(0.2)	
 		if thing.Text == "Anti Staff (Enabled)" then
+		GuiL.Warn("Staff Modes", "The avaible staff modes are: Lobby, Warn", 4")
 			repeat
+					
 			wait(0.1)
+			local StaffMode = game.CoreGui.Curiousli.Background.CombatTab.Main.ASMode
 			 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
                             if v:IsInGroup(5774246) and v:GetRankInGroup(5774246) >= 100 then
+				if StaffMode.Text == "" or "Lobby" then
                                 Client:Get("TeleportToLobby"):SendToServer()
+				else
+				GuiL.Warn("Anti Staff", "Staff Detected: "..v.Name, 3)
+				end
                             elseif v:IsInGroup(4199740) and v:GetRankInGroup(4199740) >= 1 then
+                                if StaffMode.Text == "" or "Lobby" then
                                 Client:Get("TeleportToLobby"):SendToServer()
+				else
+				GuiL.Warn("Anti Staff", "Staff Detected: "..v.Name, 3)
+				end
                             end
                         end
                         connection = game:GetService("Players").PlayerAdded:Connect(function(v)
                             if v:IsInGroup(5774246) and v:GetRankInGroup(5774246) >= 100 then
+                                if StaffMode.Text == "" or "Lobby" then
                                 Client:Get("TeleportToLobby"):SendToServer()
+				else
+				GuiL.Warn("Anti Staff", "Staff Detected: "..v.Name, 3)
+				end
                             elseif v:IsInGroup(4199740) and v:GetRankInGroup(4199740) >= 1 then
+                                if StaffMode.Text == "" or "Lobby" then
                                 Client:Get("TeleportToLobby"):SendToServer()
+				else
+				GuiL.Warn("Anti Staff", "Staff Detected: "..v.Name, 3)
+				end
                             end
                         end)
 			until thing.Text == "Anti Staff (Disabled)"
@@ -449,6 +468,9 @@ end)
 		end
 	end)
 	
+	GuiL.Value("CombatTab", "Anti Staff", "ASMode")
+	GuiL.UpdateValue("CombatTab", "Anti Staff", "Anti Staff Mode")
+		
 	local BedwarsSwords = require(game:GetService("ReplicatedStorage").TS.games.bedwars["bedwars-swords"]).BedwarsSwords
             function hashFunc(vec) 
                 return {value = vec}
