@@ -185,6 +185,23 @@ texttext.Parent = warn
 task.wait(Delay)
 warn:Destroy()
     end,
+	
+	['Value'] = function(Tab, Button, Name)
+	local template_value = Instance.new("TextBox")
+	template_value.Font = Enum.Font.SourceSans
+	template_value.Text = ""
+	template_value.PlaceholderText = Button.." Value"
+	template_value.TextColor3 = Color3.new(0, 0, 0)
+	template_value.TextScaled = true
+	template_value.TextSize = 14
+	template_value.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
+	--//button_template.Position = UDim2.new(0, 0, 0.0318819918, 0)
+	template_value.Size = UDim2.new(0.850000024, 0, 0.0267606955, 0)
+	template_value.Visible = true
+	template_value.Name = Name
+	template_value.Parent = game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main
+	template_value.ClearTextOnFocus = false
+	end,
 	['UpdateValue'] = function(Tab, Name, NewName)
 		game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main:FindFirstChild(Name).Text = NewName
 	end
