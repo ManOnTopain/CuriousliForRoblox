@@ -650,33 +650,7 @@ Button("RenderTab", "Heart", function()
 	end
 end)
 
-local HitS = false
 
-local TrollMessages = {"Pow!","Thump!","Wham!","Hit!","Smack!","Bang!","Pop!","Boom!", "Haram!", "Kabam!", "Skuuuura!", "Ablam!", "Pha pha!", "inf"}
-local old
 
-Button("WorldTab", "Hit Messages", function()
-	if HitS == false then
-		HitS = true
-		old = debug.getupvalue(bedwars["DamageIndicator"],10,{Create})
-                debug.setupvalue(bedwars["DamageIndicator"],10,{
-                    Create = function(self,obj,...)
-                        spawn(function()
-                            pcall(function()
-                                obj.Parent.Text = TrollMessages[math.random(1,#TrollMessages)]
-                                obj.Parent.TextColor3 =  Color3.fromHSV(tick()%5/5,1,1)
-                            end)
-                        end)
-                        return game:GetService("TweenService"):Create(obj,...)
-			end
-		})
-	else
-		 debug.setupvalue(bedwars["DamageIndicator"],10,{
-                    Create = old
-                })
-                old = nil
-		HitS = false
-	end
-end)
 
 
