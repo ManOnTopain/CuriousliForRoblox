@@ -300,19 +300,7 @@ if game.ReplicatedStorage:FindFirstChild("TS") then
 	
 	  
 	
-local KillE = false
-		
-Button("CombatTab", "Kill aura", function()
-	if KillE == false then
-		KillE = true
-		repeat 
-			wait(0.1)
-			
-		until KillE == false
-	else
-		KillE = false
-	end
-end)
+
 
 Button("RenderTab", "No Fall", function()
 	local thing = game.CoreGui.Curiousli.Background.RenderTab.Main
@@ -412,7 +400,7 @@ end)
 	end)
 	
 	Button("CombatTab", "Velocity", function()
-		local thing = Background.BlatantTab.Main.Velocity
+		local thing = Background.CombatTab.Main.Velocity
 		wait(0.2)	
 		if thing.Text == "Velocity (Enabled)" or "Velocity ( Enabled )" then
 			repeat
@@ -425,6 +413,34 @@ end)
                         old = nil
 		end
 	end)
+	
+	Button("CombatTab", "Anti Staff", function()
+		local thing = Background.CombatTab.Main['Anti Staff']
+		wait(0.2)	
+		if thing.Text == "Anti Staff (Enabled)" or "Anti Staff ( Enabled )" then
+			repeat
+			wait(0.1)
+			 for i,v in pairs(game:GetService("Players"):GetPlayers()) do
+                            if v:IsInGroup(5774246) and v:GetRankInGroup(5774246) >= 100 then
+                                Client:Get("TeleportToLobby"):SendToServer()
+                            elseif v:IsInGroup(4199740) and v:GetRankInGroup(4199740) >= 1 then
+                                Client:Get("TeleportToLobby"):SendToServer()
+                            end
+                        end
+                        connection = game:GetService("Players").PlayerAdded:Connect(function(v)
+                            if v:IsInGroup(5774246) and v:GetRankInGroup(5774246) >= 100 then
+                                Client:Get("TeleportToLobby"):SendToServer()
+                            elseif v:IsInGroup(4199740) and v:GetRankInGroup(4199740) >= 1 then
+                                Client:Get("TeleportToLobby"):SendToServer()
+                            end
+                        end)
+			until thing.Text == "Anti Staff (Disabled)" or "Anti Staff ( Disabled )"
+		else
+			connection:Disconnect()
+		end
+	end)
+	
+	
 end
 
 
