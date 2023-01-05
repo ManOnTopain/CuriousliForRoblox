@@ -679,13 +679,4 @@ Button("WorldTab", "Hit Messages", function()
 	end
 end)
 
-local NoFall = false
-Button("WorldTab", "No Fall", function()
-	if NoFall == false then
-		NoFall = true
-		game.Workspace.Gravity = 180
-	else
-		NoFall = false
-		game.Workspace.Gravity = 192.6
-	end
-end)
+
