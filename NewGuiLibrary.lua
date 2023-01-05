@@ -109,7 +109,7 @@ local function getcustomassetfunc(path)
 end
 
 
-shared.GuiLibrary = {
+shared.CGuiLibrary = {
     ["Button"] = function(Tab, Name, Call)
         local template_buton = Instance.new("TextButton")
     template_buton.Font = Enum.Font.SourceSansBold
