@@ -95,6 +95,13 @@ local function updatevalue(Tab, Name, NewName)
     game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main:FindFirstChild(Name).Text = NewName
 end
 
+repeat task.wait() until game:IsLoaded()
+repeat task.wait() until shared.CGuiLibrary
+local GuiL = shared.CGuiLibary
+
+if shared.VapeExecuted then
+	warn("Ur using vape, might break the script")
+end
 
 local players = game:GetService("Players")
 local workspace = game.Workspace
@@ -553,6 +560,14 @@ Button("WorldTab", "Hit Messages", function()
 		HitS = false
 	end
 end)
+	
+GuiL.Value("WorldTab", "Hit Messages", "AddMessage")
+game.CoreGui.Curiousli.Background.WorldTab.Main.AddMessage.FocusLost:Connect(function()
+	local tt = game.CoreGui.Curiousli.Background.WorldTab.Main.AddMessage
+	table.instert(TrollMessages, tt.Text)
+end)
+	
+	
 end
 
 
