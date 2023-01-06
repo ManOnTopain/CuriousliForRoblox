@@ -348,7 +348,7 @@ end)
 		local thing = Background.CombatTab.Main['Anti Staff']
 		wait(0.2)	
 		if thing.Text == "Anti Staff (Enabled)" then
-		GuiL.Warn("Staff Modes", "The avaible staff modes are: Lobby, Warn", 4")
+		GuiL.Warn("Staff Modes", "The avaible staff modes are: Lobby, Warn", 4)
 			repeat
 					
 			wait(0.1)
