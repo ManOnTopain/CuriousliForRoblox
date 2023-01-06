@@ -21,7 +21,7 @@ repeat task.wait() until shared.CGuiLibrary
 local GuiL = shared.CGuiLibary
 
 if shared.VapeExecuted then
-	GuiL.Warn("Ur using vape, might break the script")
+	GuiL.Warn("Curiousli/Vape", "Ur using vape, might break Curiousli", 3)
 end
 
 local players = game:GetService("Players")
