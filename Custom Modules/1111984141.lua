@@ -1,4 +1,4 @@
-y
+
 local GuiL = shared.CGuiLibrary
 
 local function Button(Tab, Name, Call)
