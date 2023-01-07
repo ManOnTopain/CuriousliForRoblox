@@ -1,4 +1,4 @@
-repeat task.wait() until shared.CGuiLibrary
+y
 local GuiL = shared.CGuiLibrary
 
 local function Button(Tab, Name, Call)
