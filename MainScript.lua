@@ -1,5 +1,4 @@
---shared.CuriousliExecuted = false
---loadstring(game:HttpGet("https://raw.githubusercontent.com/ManOnTopain/CuriousliForRoblox/main/MainScript.lua", true))()
+
 
 local getasset = getsynasset or getcustomasset or function(location) return "rbxasset://"..location end
 
