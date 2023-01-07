@@ -653,3 +653,6 @@ if betterisfile("curiousli/Custom Modules/module.lua") then
 loadstring(readfile("curiousli/Custom Modules/module.lua"))()
 end
 
+while wait(0.1) do
+    game.CoreGui.Curiousli.Heart.Main.Text = game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth
+end
