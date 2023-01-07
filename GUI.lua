@@ -1748,9 +1748,6 @@ task.spawn(function()
 end)
 
 	
-while wait(0.1) do
-    maina.Text = game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth
-end
 
 	--end--
 end
