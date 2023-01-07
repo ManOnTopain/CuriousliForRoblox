@@ -1,8 +1,7 @@
-repeat task.wait() until shared.CGuiLibrary
+
 
 local GuiL = shared.CGuiLibrary
-print("Loaded gui library from 613957114.lua")
-
+print("e")
 local function Button(Tab, Name, Call)
 	GuiL.Button(Tab, Name, Call)
 end
