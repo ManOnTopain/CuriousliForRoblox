@@ -1026,35 +1026,8 @@ end)
 		end
 	end)
 	
-	if not isfile("curiousli/Enabled/Nuker.txt") then
-		writefile("curiousli/Enabled/Nuker.txt", "False")	
-	end
-local NukeDistance = {["Value"] = 30}
-	GuiL.Button("WorldTab", "Nuker", function()
-		local enabled = readfile("curiousli/Enabled/Nuker.txt")
-		local thing = Background.WorldTab.Main.Nuker
-		if thing.Text == "Nuker (Enabled)" then
-			repeat
-			task.wait()
-			 if isalive(lplr) and lplr.Character:FindFirstChild("Humanoid").Health > 0.1 then
-                                    local beds = getbeds()
-                                    for i,v in pairs(beds) do
-                                        local mag = (v.Position - lplr.Character:FindFirstChild("HumanoidRootPart").Position).Magnitude
-                                        if mag < NukeDistance["Value"] then
-                                            game:GetService("ReplicatedStorage").rbxts_include.node_modules:FindFirstChild("@rbxts").net.out._NetManaged.DamageBlock:InvokeServer({
-                                                ["blockRef"] = {
-                                                    ["blockPosition"] = getserverpos(v.Position)
-                                                },
-                                                ["hitPosition"] = getserverpos(v.Position),
-                                                ["hitNormal"] = getserverpos(v.Position)
-                                            })
-                                        end
-                                    end
-                                end
-			until thing.Text == "Nuker (Disabled)
-		end
-	end)
 	
+
 local HitS = false
 
 local TrollMessages = {"Pow!","Thump!","Wham!","Hit!","Smack!","Bang!","Pop!","Boom!", "Haram!", "Kabam!", "Skuuuura!", "Ablam!", "Pha pha!", "inf"}
