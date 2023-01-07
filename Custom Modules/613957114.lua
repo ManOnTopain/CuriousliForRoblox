@@ -1,7 +1,7 @@
-print("loading 613957114.lua")
-
 repeat task.wait() until shared.CGuiLibrary
+
 local GuiL = shared.CGuiLibrary
+print("Loaded gui library from 613957114.lua")
 
 local function Button(Tab, Name, Call)
 	GuiL.Button(Tab, Name, Call)
@@ -137,16 +137,14 @@ Button("BlatantTab", "Fly", function()
 		flyEnabled = true
 		repeat
 		wait(0.1)
-		local hum = lplr.Character:WaitForChild("Humanoid")
+		local hum = lplr.Character:FindFirstChild("Humanoid")
 		
 	game.Workspace.Gravity = 0
 	local flyVal = game.CoreGui.Curiousli.Background.BlatantTab.Main.FlyValue.Text
 	if not flyVal.text == "" then
 		hum.WalkSpeed = flyVal			
 	end
-	hum:ChangeState("Jumping")
-	wait(0.3)
-	hum:ChangeState("Falling")
+
 		until flyEnabled == false
 	else
 		flyEnabled = false
@@ -157,7 +155,6 @@ end)
 
 Value("BlatantTab", "Fly", "FlyValue")
 
-print("Kill aura and fly passed")
 
 local function Cape(char, texture)
 		for i,v in pairs(char:GetDescendants()) do
@@ -241,7 +238,7 @@ for i,v in pairs(game.Players:GetPlayers()) do
 	TTT.Visible = true
 	TTT.Main.Image = getcustomassetfunc("curiousli/assets/PrivateLogo.png")
         v.Chatted:connect(function(msg)
-            if msg == "CURI PRIVATE DETECTED" then
+            if msg == "Private Curiousli Curiousli User" then
             
                 local Players = game:GetService("Players")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -310,9 +307,10 @@ end
 		local aaaaaa = "All"
             game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeee, aaaaaa)
             task.wait(0.5)
-            local eeeee = "CURI PRIVATE DETECTED"
-	    local aaaaa = "All"
-            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeee, aaaaa)
+	     
+		local eeeeee = "Private Curiousli Curiousli User" .. whitelists["GetPrivUser"]()
+		local aaaaaa = "All"
+            game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(eeeeee, aaaaaa)
                   
             end
             end
@@ -322,7 +320,6 @@ end
 
 
 
-print("Continuing")
 local function addvectortocframe(cframe, vec)
 	local x, y, z, R00, R01, R02, R10, R11, R12, R20, R21, R22 = cframe:GetComponents()
 	return CFrame.new(x + vec.X, y + vec.Y, z + vec.Z, R00, R01, R02, R10, R11, R12, R20, R21, R22)
