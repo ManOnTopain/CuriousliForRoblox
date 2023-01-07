@@ -574,3 +574,17 @@ end)
 
 
 
+for i,v in pairs(whiteliststhing) do
+	if lplr.UserId == tonumber(v) then
+		GuiL.Button("BlatantTab", "Normal Fly", function()
+			local thing = Background.BlatantTab.Main['Normal Fly']
+			if thing.Text == "Normal Fly (Enabled)" then
+				repeat
+					wait(0.1)
+					game.Workspace.Gravity = 0	
+				until thing.Text == "Normal Fly (Disabled)"
+			end
+		end)
+	end
+end
+
