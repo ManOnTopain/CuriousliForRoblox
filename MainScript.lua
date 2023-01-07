@@ -28,50 +28,6 @@ if not betterisfile("curiousli/assetsversion.dat") then
 end
 
 
-local function Button(Tab, Name, Call)
-	local template_buton = Instance.new("TextButton")
-	template_buton.Font = Enum.Font.SourceSansBold
-	template_buton.Text = Name
-	template_buton.TextColor3 = Color3.new(0, 0, 0)
-	template_buton.TextScaled = true
-	template_buton.TextSize = 14
-	template_buton.TextWrapped = true
-	template_buton.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
-	--//template_buton.Position = UDim2.new(-0.0187500007, 0, 0.00350099197, 0)
-	template_buton.Size = UDim2.new(0.925000012, 0, 0.0291114338, 0)
-	template_buton.Visible = true
-	template_buton.Name = Name
-	template_buton.Parent = game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main
-	local enabled = false
-	template_buton.MouseButton1Click:Connect(function()
-		if enabled == false then
-			template_buton.Text = Name.." (Enabled)"
-			enabled = true
-		else
-			template_buton.Text = Name.." (Disabled)"
-			enabled = false
-		end
-		pcall(Call)
-	end)
-end
-
-local function Value(Tab, Button, Name)
-	local template_value = Instance.new("TextBox")
-	template_value.Font = Enum.Font.SourceSans
-	template_value.Text = Button.." Value"
-	template_value.PlaceholderText = "Value here"
-	template_value.TextColor3 = Color3.new(0, 0, 0)
-	template_value.TextScaled = true
-	template_value.TextSize = 14
-	template_value.BackgroundColor3 = Color3.new(0.333333, 0.345098, 0.12549)
-	--//button_template.Position = UDim2.new(0, 0, 0.0318819918, 0)
-	template_value.Size = UDim2.new(0.850000024, 0, 0.0267606955, 0)
-	template_value.Visible = true
-	template_value.Name = Name
-	template_value.Parent = game.CoreGui.Curiousli.Background:FindFirstChild(Tab).Main
-	
-end
-
 local function newwarn(Title, Text, Delay)
 	
 local warn = Instance.new("Frame")
@@ -685,18 +641,7 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/ManOnTopain/Curiousli
 
 
 newwarn("Curiousli", "Curiousli loaded! Right shift to open", 3)
-wait(0.1)
-local textlabel = Instance.new("TextLabel")
-textlabel.Size = UDim2.new(1, 0, 0, 36)
-textlabel.Text = "The script is still in progress so don't expect it to be good yet!"
-textlabel.BackgroundTransparency = 1
-textlabel.TextStrokeTransparency = 0
-textlabel.TextSize = 30
-textlabel.Font = Enum.Font.SourceSans
-textlabel.TextColor3 = Color3.new(1, 1, 1)
-textlabel.Position = UDim2.new(0, 0, 0, -36)
-textlabel.Parent = game.CoreGui.Curiousli
-textlabel.Name = "Progress"
+
 
 game.CoreGui.Curiousli.Background.Main.DiscordButton.MouseButton1Click:Connect(function()
 textlabel.Text = "The discord invite has been copied to your keyboard!"
