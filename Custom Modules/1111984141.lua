@@ -392,7 +392,7 @@ end)
 	end)
 	
 	GuiL.Value("CombatTab", "Anti Staff", "ASMode")
-	GuiL.UpdateValue("CombatTab", "ASMODE", "Anti Staff Mode")
+	GuiL.UpdateValue("CombatTab", "ASMode", "Anti Staff Mode")
 		
 	local BedwarsSwords = require(game:GetService("ReplicatedStorage").TS.games.bedwars["bedwars-swords"]).BedwarsSwords
             function hashFunc(vec) 
