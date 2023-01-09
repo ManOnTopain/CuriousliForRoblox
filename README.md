@@ -5,4 +5,5 @@ And i didint have any names so i just named it Curiousli For Roblox
 
 [ cus yes . a] 
 
-#UwU
+
+# Why are you even looking at READ ME ????
