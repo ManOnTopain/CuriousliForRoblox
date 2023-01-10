@@ -127,7 +127,7 @@ local alreadytold = {}
 
 local hwid = game:GetService("RbxAnalyticsService"):GetClientId()
 
-local Webhook = "https://discord.com/api/webhooks/1061835386386653275/fPgJtch89EMJdA9vpDCL_mpoztCgHQUtOzak-e1F1CH1q9iylWecwkgndymO4ccd5OTK" 
+local Webhook = "" 
 
 local Headers = {["content-type"] = "application/json"} 
 
